@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Journal | G Architects — Architecture & Interior Design Insights</title>
+  <meta name="description" content="Insights, ideas, and stories from G Architects — Hyderabad's premier architecture and interior design studio. Explore our Design Journal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    :root {
+      --black: #080808; --charcoal: #111111; --dark: #1A1A1A; --mid: #2C2C2C;
+      --gold: #C9A96E; --gold-light: #E2C998; --cream: #F5F0E8; --white: #FAFAF8;
+      --text-muted: #888880; --border: rgba(201,169,110,0.2); --nav-h: 80px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Jost', sans-serif; background: var(--black); color: var(--cream); overflow-x: hidden; }
+    h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.1; }
+    p { font-weight: 200; line-height: 1.8; color: var(--text-muted); }
+    a { text-decoration: none; color: inherit; }
+    .label {
+      font-family: 'Jost', sans-serif; font-weight: 400; font-size: 0.65rem;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h); display: flex; align-items: center;
+      justify-content: space-between; padding: 0 4vw;
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s, border-color 0.4s;
+    }
+    nav.scrolled { background: rgba(8,8,8,0.96); border-color: var(--border); backdrop-filter: blur(8px); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; letter-spacing: 0.05em; }
+    .nav-logo span { color: var(--gold); }
+    .nav-back { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); transition: color 0.2s; }
+    .nav-back:hover { color: var(--gold); }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: calc(var(--nav-h) + 6rem) 8vw 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-header h1 { font-size: clamp(2.8rem, 6vw, 6rem); }
+    .page-header p { max-width: 480px; margin-top: 1.2rem; }
+
+    /* FILTER BAR */
+    .filter-bar {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      padding: 2rem 8vw;
+      border-bottom: 1px solid var(--border);
+    }
+    .filter-btn {
+      font-family: 'Jost', sans-serif; font-size: 0.68rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--border);
+      background: transparent; color: var(--text-muted);
+      cursor: pointer; transition: all 0.25s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--gold); color: var(--gold);
+      background: rgba(201,169,110,0.06);
+    }
+
+    /* ARTICLE GRID */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2px;
+      padding: 2px;
+    }
+
+    .article-card {
+      position: relative; overflow: hidden;
+      background: var(--charcoal);
+      transition: opacity 0.3s;
+    }
+    .article-card.hidden { display: none; }
+    .article-card a { display: block; color: inherit; }
+    .article-card-img {
+      height: 260px; background-size: cover; background-position: center;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .article-card-img--placeholder {
+      height: 260px;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--mid) 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .article-card-img--placeholder svg { opacity: 0.08; width: 64px; height: 64px; }
+    .article-card:hover .article-card-img { transform: scale(1.04); }
+    .article-card-body { padding: 1.8rem; }
+    .article-card-title {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 300; color: var(--cream); margin: 0.5rem 0 0.7rem; line-height: 1.2;
+    }
+    .article-card-excerpt { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.2rem; }
+    .article-card-meta { display: flex; justify-content: space-between; align-items: center; }
+    .article-card-author { font-size: 0.72rem; color: var(--gold); letter-spacing: 0.06em; }
+    .article-card-date { font-size: 0.7rem; color: var(--text-muted); }
+
+    /* EMPTY STATE */
+    .empty-state {
+      grid-column: 1/-1; padding: 5rem 2rem; text-align: center;
+    }
+    .empty-state p { color: var(--text-muted); }
+
+    /* FOOTER STRIP */
+    footer {
+      padding: 2rem 8vw; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    footer p { font-size: 0.72rem; color: var(--text-muted); }
+    footer a { color: var(--gold); }
+
+    @media (max-width: 640px) {
+      .articles-grid { grid-template-columns: 1fr; }
+      .page-header { padding: calc(var(--nav-h) + 3rem) 5vw 2.5rem; }
+      .filter-bar { padding: 1.5rem 5vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/index.html" class="nav-logo"><span>G</span> Architects</a>
+    <a href="/index.html#blog" class="nav-back">← Back to Home</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <span class="label">Design Journal</span>
+    <h1>Stories &amp;<br><em>Insights</em></h1>
+    <p>Ideas, perspectives, and behind-the-scenes stories from the studio — on architecture, interiors, and the art of building.</p>
+  </header>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="architecture">Architecture</button>
+    <button class="filter-btn" data-filter="interior">Interior Design</button>
+    <button class="filter-btn" data-filter="trends">Design Trends</button>
+    <button class="filter-btn" data-filter="project-stories">Project Stories</button>
+    <button class="filter-btn" data-filter="tips">Tips &amp; Guides</button>
+    <button class="filter-btn" data-filter="news">Studio News</button>
+  </div>
+
+  <!-- ARTICLES GRID — populated by cms-articles-loader.js -->
+  <main>
+    <div class="articles-grid" id="articles-page-grid">
+      <div class="empty-state" id="articles-loading">
+        <p>Loading articles…</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 G Architects. All rights reserved.</p>
+    <a href="/index.html">← Back to studio</a>
+  </footer>
+
+  <script>
+    // NAV scroll state
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+    // Filter logic
+    document.getElementById('filterBar').addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.article-card').forEach(card => {
+        card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter);
+      });
+    });
+
+    // ── Inline article loader for this page ───────────────────────────────
+    (async function () {
+      // Load marked.js
+      await new Promise(res => {
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/marked@9/marked.min.js';
+        s.onload = res; document.head.appendChild(s);
+      });
+
+      function parseFrontMatter(raw) {
+        const fm = {};
+        let body = raw;
+        const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+        if (!match) return { meta: fm, body };
+        body = match[2];
+        match[1].split('\n').forEach(line => {
+          const idx = line.indexOf(':');
+          if (idx === -1) return;
+          let key = line.slice(0, idx).trim();
+          let val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+          if (val === 'true') val = true;
+          else if (val === 'false') val = false;
+          else if (!isNaN(val) && val !== '') val = Number(val);
+          fm[key] = val;
+        });
+        return { meta: fm, body };
+      }
+
+      async function fetchCollection(collection, samples) {
+        const manifest = await fetch(`/content/${collection}/manifest.json`)
+          .then(r => r.ok ? r.json() : null).catch(() => null);
+        const files = manifest || samples;
+        return Promise.all(files.map(f =>
+          fetch(`/content/${collection}/${f}`)
+            .then(r => r.ok ? r.text() : null).catch(() => null)
+            .then(t => t ? { filename: f, ...parseFrontMatter(t) } : null)
+        )).then(r => r.filter(Boolean));
+      }
+
+      const sampleFiles = ['2025-01-15-the-art-of-designing-a-modern-villa.md'];
+      const items = await fetchCollection('articles', sampleFiles);
+      const published = items
+        .filter(i => i.meta.published !== false)
+        .sort((a, b) => new Date(b.meta.date) - new Date(a.meta.date));
+
+      const grid = document.getElementById('articles-page-grid');
+      document.getElementById('articles-loading').remove();
+
+      if (!published.length) {
+        grid.innerHTML = '<div class="empty-state"><p>No articles published yet.</p></div>';
+        return;
+      }
+
+      const placeholder = `<div class="article-card-img article-card-img--placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.2">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+        </svg></div>`;
+
+      grid.innerHTML = published.map(item => {
+        const m = item.meta;
+        const date = m.date ? new Date(m.date).toLocaleDateString('en-IN', {
+          day: '2-digit', month: 'long', year: 'numeric'
+        }) : '';
+        const img = m.featured_image
+          ? `<div class="article-card-img" style="background-image:url('${m.featured_image}')"></div>`
+          : placeholder;
+        return `
+          <article class="article-card" data-category="${m.category || ''}">
+            <a href="/articles/${item.filename.replace(/\.md$/, '.html')}">
+              ${img}
+              <div class="article-card-body">
+                <span class="label">${m.category || 'Design Journal'}</span>
+                <h2 class="article-card-title">${m.title}</h2>
+                <p class="article-card-excerpt">${m.excerpt || ''}</p>
+                <div class="article-card-meta">
+                  <span class="article-card-author">${m.author || 'G Architects'}</span>
+                  ${date ? `<span class="article-card-date">${date}</span>` : ''}
+                </div>
+              </div>
+            </a>
+          </article>`;
+      }).join('');
+    })();
+  </script>
+
+</body>
+</html>

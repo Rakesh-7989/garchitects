@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G Architects — Local Media Browser</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0f0f0f;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+    header {
+      background: #1a1a1a;
+      padding: 20px 30px;
+      border-bottom: 1px solid #333;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    header h1 { font-size: 20px; color: #d4a853; }
+    header p { font-size: 13px; color: #888; margin-top: 4px; }
+    .search-bar {
+      padding: 14px 30px;
+      background: #141414;
+      border-bottom: 1px solid #222;
+    }
+    .search-bar input {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px 16px;
+      background: #222;
+      border: 1px solid #444;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+    }
+    .search-bar input:focus { border-color: #d4a853; }
+    .stats {
+      padding: 10px 30px;
+      font-size: 13px;
+      color: #666;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      padding: 20px 30px;
+    }
+    .card {
+      background: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #2a2a2a;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .card:hover {
+      border-color: #d4a853;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212,168,83,0.15);
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      background: #111;
+    }
+    .card-info {
+      padding: 10px 12px;
+    }
+    .card-name {
+      font-size: 11px;
+      color: #ccc;
+      word-break: break-all;
+      line-height: 1.4;
+    }
+    .card-path {
+      font-size: 10px;
+      color: #555;
+      margin-top: 4px;
+      font-family: monospace;
+    }
+    .copy-btn {
+      display: none;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #d4a853;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .card:hover .copy-btn { display: block; }
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #d4a853;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      z-index: 999;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .loading {
+      text-align: center;
+      padding: 60px;
+      color: #555;
+      font-size: 16px;
+    }
+    .folder-card {
+      background: #1e1a12;
+      border: 1px solid #3a2e10;
+    }
+    .folder-card:hover { border-color: #d4a853; }
+    .folder-icon {
+      width: 100%;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      background: #1a1500;
+    }
+    .breadcrumb {
+      padding: 10px 30px;
+      font-size: 13px;
+      color: #888;
+    }
+    .breadcrumb a {
+      color: #d4a853;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>📁 G Architects — Media Browser</h1>
+    <p>Click any image to copy its path. Use that path in the CMS image fields.</p>
+  </div>
+</header>
+
+<div class="search-bar">
+  <input type="text" id="search" placeholder="🔍 Search images..." oninput="filterImages()">
+</div>
+
+<div class="breadcrumb" id="breadcrumb">
+  <a href="#" onclick="loadFolder('images/uploads')">📂 images/uploads</a>
+</div>
+
+<div class="stats" id="stats">Loading...</div>
+
+<div class="grid" id="grid">
+  <div class="loading">⏳ Images load అవుతున్నాయి...</div>
+</div>
+
+<div class="toast" id="toast">✅ Path copied!</div>
+
+<script>
+  let allItems = [];
+  let currentFolder = 'images/uploads';
+
+  const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg'];
+
+  function isImage(name) {
+    return IMAGE_EXTENSIONS.some(ext => name.toLowerCase().endsWith(ext));
+  }
+
+  async function loadFolder(folder) {
+    currentFolder = folder;
+    document.getElementById('grid').innerHTML = '<div class="loading">⏳ Loading...</div>';
+    document.getElementById('stats').textContent = 'Loading...';
+
+    // Update breadcrumb
+    const parts = folder.split('/');
+    let breadcrumbHtml = '';
+    let path = '';
+    parts.forEach((part, i) => {
+      path += (i === 0 ? '' : '/') + part;
+      const p = path;
+      if (i < parts.length - 1) {
+        breadcrumbHtml += `<a href="#" onclick="loadFolder('${p}')">${part}</a> / `;
+      } else {
+        breadcrumbHtml += `<span style="color:#fff">${part}</span>`;
+      }
+    });
+    document.getElementById('breadcrumb').innerHTML = '📂 ' + breadcrumbHtml;
+
+    try {
+      const res = await fetch('/' + folder + '/');
+      const html = await res.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const links = doc.querySelectorAll('a[href]');
+
+      allItems = [];
+      links.forEach(a => {
+        const href = a.getAttribute('href');
+        if (!href || href === '../' || href.startsWith('?') || href.startsWith('/') && !href.startsWith('/' + folder)) return;
+        
+        let name = href.replace(/\/$/, '');
+        name = decodeURIComponent(name.split('/').pop());
+        
+        if (!name || name === '..') return;
+
+        if (href.endsWith('/')) {
+          allItems.push({ name, type: 'folder', path: folder + '/' + name });
+        } else if (isImage(name)) {
+          allItems.push({ name, type: 'image', path: '/' + folder + '/' + name });
+        }
+      });
+
+      renderItems(allItems);
+    } catch (e) {
+      document.getElementById('grid').innerHTML = '<div class="loading">❌ Could not load images. Make sure the serve server is running on port 3000.</div>';
+      document.getElementById('stats').textContent = '';
+    }
+  }
+
+  function renderItems(items) {
+    const grid = document.getElementById('grid');
+    const stats = document.getElementById('stats');
+
+    const images = items.filter(i => i.type === 'image');
+    const folders = items.filter(i => i.type === 'folder');
+
+    stats.textContent = `${images.length} images, ${folders.length} folders found`;
+
+    if (items.length === 0) {
+      grid.innerHTML = '<div class="loading">📭 No images found in this folder</div>';
+      return;
+    }
+
+    let html = '';
+
+    // Folders first
+    folders.forEach(item => {
+      html += `
+        <div class="card folder-card" onclick="loadFolder('${item.path}')">
+          <div class="folder-icon">📁</div>
+          <div class="card-info">
+            <div class="card-name">${item.name}</div>
+            <div class="card-path">Click to open</div>
+          </div>
+        </div>
+      `;
+    });
+
+    // Then images
+    images.forEach(item => {
+      const encodedPath = item.path.split('/').map(p => encodeURIComponent(p)).join('/');
+      html += `
+        <div class="card" onclick="copyPath('${item.path.replace(/'/g, "\\'")}')">
+          <img src="${encodedPath}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>'">
+          <button class="copy-btn" onclick="event.stopPropagation(); copyPath('${item.path.replace(/'/g, "\\'")}')">Copy Path</button>
+          <div class="card-info">
+            <div class="card-name">${item.name}</div>
+            <div class="card-path">${item.path}</div>
+          </div>
+        </div>
+      `;
+    });
+
+    grid.innerHTML = html;
+  }
+
+  function filterImages() {
+    const q = document.getElementById('search').value.toLowerCase();
+    const filtered = allItems.filter(i => i.name.toLowerCase().includes(q));
+    renderItems(filtered);
+  }
+
+  function copyPath(path) {
+    navigator.clipboard.writeText(path).then(() => {
+      const toast = document.getElementById('toast');
+      toast.textContent = '✅ Copied: ' + path;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    });
+  }
+
+  // Load on start
+  loadFolder('images/uploads');
+</script>
+</body>
+</html>
