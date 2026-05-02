@@ -6,4 +6,4 @@ published: true
 order: 7
 ---
 
-G Architects ని మా SIRI VILLAS గated community project కి appoint చేసిన నిర్ణయం మాకు చాలా beneficial గా ఉంది. 6 acres లో 75 villas, club house, jogging track, swimming pool, kids play area — అన్నీ ఒక cohesive, premium feel తో design చేశారు. Site plan నుండి individual villa elevations వరకు ప్రతి aspect professionally handle చేశారు. Buyers కూడా design చూసి impressed అవుతున్నారు. Definitely a value-adding partnership!
+Appointing G Architects for our SIRI VILLAS gated community proved to be an outstanding decision. Across 6 acres with 75 villas, a club house, jogging track, swimming pool, and kids play area — everything was designed with a cohesive premium feel. From the master site plan to individual villa elevations, every aspect was handled professionally. Our buyers are impressed by the design quality from day one.

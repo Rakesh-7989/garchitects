@@ -6,4 +6,4 @@ published: true
 order: 3
 ---
 
-G Architects team తో పని చేయడం చాలా wonderful experience. వారు మా taste, lifestyle అన్నీ అర్థం చేసుకుని అందుకు తగ్గ design ఇచ్చారు. Dining area మరియు living room combination చాలా spacious గా feel అవుతుంది. Wardrobe designs అన్నీ వెరీ smart గా storage maximize చేశారు. మా villa ఇప్పుడు magazine worthy గా ఉంది!
+Working with G Architects was a wonderful experience. They understood our tastes and lifestyle perfectly and translated that into a stunning design. The dining and living area combination feels spacious and elegant. Every wardrobe is smartly designed to maximise storage. Our villa now looks like something out of a design magazine!

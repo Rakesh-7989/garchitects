@@ -6,4 +6,4 @@ published: true
 order: 5
 ---
 
-G Architects తో నా villa project చేయించుకున్నాను. Night view rendering చూసినప్పుడు నమ్మలేకపోయాను — exact గా అలాగే వచ్చింది! Elevation design modern గా, classy గా ఉంది. Team చాలా responsive గా ఉన్నారు, నా ప్రతి change request accommodate చేశారు. Project timeline perfectly maintain చేశారు. మళ్ళీ future project కి G Architects నే choose చేస్తాను.
+I had my villa project done with G Architects and the result was beyond expectations. When I saw the night view rendering, I couldn't believe how close the actual build matched it. The elevation is modern and classy. The team was incredibly responsive — every change request was accommodated. Timeline was perfectly maintained. I'll definitely choose G Architects again for my next project.

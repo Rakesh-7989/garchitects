@@ -6,4 +6,4 @@ published: true
 order: 4
 ---
 
-G Architects నా residence design చేసిన విధానం చాలా professional గా ఉంది. Elevation design చాలా attractive గా వచ్చింది — మా neighbours అందరూ architect ఎవరు అని అడుగుతున్నారు. Structure మరియు aesthetics రెండూ perfectly balance చేశారు. నా ఇంటి design చూసి proud గా feel అవుతున్నాను. G Architects కి చాలా thanks!
+G Architects designed my residence in a truly professional manner. The elevation design turned out exceptionally attractive — every neighbour who visits asks who the architect is. They achieved a perfect balance between structure and aesthetics. I feel proud every time I look at my home. Many thanks to the G Architects team!

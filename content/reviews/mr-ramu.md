@@ -1,9 +1,9 @@
 ---
 client_name: "Mr. Ramu"
-project_type: "2,800 Sq.ft Interior Design, Nandigama"
+project_type: "Interior Design, Nandigama"
 rating: 5
 published: true
 order: 1
 ---
 
-G Architects నా ఇంటిని నా కలల ఇల్లుగా మార్చారు. ప్రతి గది design చాలా thoughtful గా ఉంది. Living room నుండి puja room వరకు, ప్రతి చిన్న detail లో వారి expertise కనిపిస్తుంది. Family అందరూ చాలా satisfied గా ఉన్నారు. Time కి complete చేసి, budget లో పని చేశారు. Highly recommended!
+G Architects transformed our home beyond what we imagined. Every room was designed with thoughtfulness — from the living room to the puja space, each detail reflects their expertise. The family is completely satisfied. Delivered on time, within budget. Highly recommended to anyone looking for quality interior work!

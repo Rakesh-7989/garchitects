@@ -1214,25 +1214,68 @@
       overflow: hidden;
     }
 
-    .testimonials-layout {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 8rem;
-      align-items: start;
+    .testimonials-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 4rem;
     }
 
-    .testimonials-side h2 {
-      margin-bottom: 1.5rem;
+    .testimonials-header h2 {
+      margin-bottom: 1rem;
     }
 
-    .testimonials-side p {
-      margin-bottom: 2.5rem;
+    .testimonials-header p {
+      max-width: 480px;
+      margin-top: 1rem;
+    }
+
+    .testi-scroll-btns {
+      display: flex;
+      gap: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .testi-scroll-btns button {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--cream);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: border-color 0.3s, background 0.3s, color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .testi-scroll-btns button:hover {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .testi-track-wrap {
+      overflow-x: hidden;
+      margin: 0 -5vw;
+      padding: 0 5vw;
     }
 
     .testi-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       gap: 2rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 1rem;
+    }
+
+    .testi-grid::-webkit-scrollbar {
+      display: none;
     }
 
     .testi-card {
@@ -1241,6 +1284,9 @@
       position: relative;
       overflow: hidden;
       transition: border-color 0.3s, background 0.3s;
+      min-width: 360px;
+      max-width: 400px;
+      flex-shrink: 0;
     }
 
     .testi-card:hover {
@@ -1881,8 +1927,8 @@
         gap: 3rem;
       }
 
-      .testi-grid {
-        grid-template-columns: 1fr;
+      .testi-card {
+        min-width: 280px;
       }
 
       .form-row {
@@ -2946,21 +2992,26 @@
   <!-- TESTIMONIALS -->
   <section id="testimonials">
     <div class="section-inner">
-      <div class="testimonials-layout">
-        <div class="testimonials-side reveal-left">
+      <div class="testimonials-header reveal">
+        <div>
           <span class="label">Client Stories</span>
           <div class="divider"></div>
           <h2>Words from Those We've <em class="italic gold">Designed For</em></h2>
-          <p>Our most enduring measure of success is not the award or the accolade — it is the client who says their
-            home finally feels like theirs.</p>
-          <a href="#contact" class="btn-ghost" style="margin-top:2rem;display:inline-flex;">Start Your Project →</a>
+          <p>Our most enduring measure of success is not the award — it is the client who says their home finally feels like theirs.</p>
         </div>
-        <div class="testi-grid reveal-right" id="reviews-dynamic-grid">
-          <!-- Loading skeleton -->
-          <div class="cms-skeleton" id="reviews-skeleton">
-            <div class="cms-skeleton-card" style="height:200px;"></div>
-            <div class="cms-skeleton-card" style="height:200px;"></div>
-          </div>
+        <div class="testi-scroll-btns">
+          <button id="testi-prev" aria-label="Previous" onclick="scrollTesti(-1)">←</button>
+          <button id="testi-next" aria-label="Next" onclick="scrollTesti(1)">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="testi-track-wrap">
+      <div class="testi-grid" id="reviews-dynamic-grid">
+        <!-- Loading skeleton -->
+        <div class="cms-skeleton" id="reviews-skeleton" style="display:flex;gap:2rem;">
+          <div class="cms-skeleton-card" style="min-width:360px;height:220px;flex-shrink:0;"></div>
+          <div class="cms-skeleton-card" style="min-width:360px;height:220px;flex-shrink:0;"></div>
+          <div class="cms-skeleton-card" style="min-width:360px;height:220px;flex-shrink:0;"></div>
         </div>
       </div>
     </div>
@@ -3445,6 +3496,15 @@
       if (!slide) return;
       const slideWidth = slide.offsetWidth;
       content.scrollBy({ left: dir * slideWidth, behavior: 'smooth' });
+    }
+
+    // Testimonials horizontal scroll
+    function scrollTesti(dir) {
+      const grid = document.getElementById('reviews-dynamic-grid');
+      if (!grid) return;
+      const card = grid.querySelector('.testi-card');
+      const scrollAmt = card ? card.offsetWidth + 32 : 400;
+      grid.scrollBy({ left: dir * scrollAmt, behavior: 'smooth' });
     }
   </script>
 
