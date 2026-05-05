@@ -1,0 +1,341 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+# Netlify Identity authentication
+publish_mode: editorial_workflow
+
+# Media / uploads
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Site URL (update with your actual domain)
+site_url: https://garchitects.com
+display_url: https://garchitects.com
+
+# ──────────────────────────────────────────
+# COLLECTIONS
+# ──────────────────────────────────────────
+
+collections:
+
+  # ── 1. ARTICLES / BLOG ──────────────────
+  - name: "articles"
+    label: "Articles / Blog"
+    label_singular: "Article"
+    folder: "content/articles"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "articles/{{slug}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "Keep under 60 characters for best SEO"
+
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        default: ""
+        date_format: "YYYY-MM-DD"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DDTHH:mm:ssZ"
+
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        default: "G Architects Team"
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Architecture", value: "architecture" }
+          - { label: "Interior Design", value: "interior" }
+          - { label: "Design Trends", value: "trends" }
+          - { label: "Project Stories", value: "project-stories" }
+          - { label: "Tips & Guides", value: "tips" }
+          - { label: "Studio News", value: "news" }
+
+      - label: "Featured Image"
+        name: "featured_image"
+        widget: "image"
+        required: false
+        hint: "Recommended: 1200×630px, JPEG or WebP"
+
+      - label: "Image Alt Text"
+        name: "image_alt"
+        widget: "string"
+        required: false
+        hint: "Describe the image for accessibility & SEO"
+
+      - label: "Excerpt / Summary"
+        name: "excerpt"
+        widget: "text"
+        hint: "Short summary shown on article cards (max 160 chars for SEO meta description)"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        hint: "Full article content — supports headings, images, quotes, lists"
+
+      - label: "SEO Title"
+        name: "seo_title"
+        widget: "string"
+        required: false
+        hint: "Custom title for browser tab & search results (leave blank to use article title)"
+
+      - label: "SEO Description"
+        name: "seo_description"
+        widget: "text"
+        required: false
+        hint: "Meta description for search engines (max 160 chars)"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        allow_add: true
+        hint: "Comma-separated tags e.g. villa, Hyderabad, modern"
+
+      - label: "Featured on Home Page"
+        name: "featured"
+        widget: "boolean"
+        default: false
+
+      - label: "Published"
+        name: "published"
+        widget: "boolean"
+        default: true
+
+
+  # ── 2. PROJECTS PORTFOLIO ───────────────
+  - name: "projects"
+    label: "Projects Portfolio"
+    label_singular: "Project"
+    folder: "content/projects"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Project Name"
+        name: "title"
+        widget: "string"
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Residential", value: "residential" }
+          - { label: "Commercial", value: "commercial" }
+          - { label: "Interior", value: "interior" }
+          - { label: "Gated Community/Layouts", value: "gated-community-layouts" }
+
+      - label: "Location"
+        name: "location"
+        widget: "string"
+        default: "Hyderabad"
+        required: false
+
+      - label: "Year"
+        name: "year"
+        widget: "number"
+        value_type: "int"
+        min: 2000
+        max: 2030
+        required: false
+
+      - label: "Project Status"
+        name: "status"
+        widget: "select"
+        options:
+          - { label: "Ongoing", value: "ongoing" }
+          - { label: "Completed", value: "completed" }
+          - { label: "Upcoming", value: "upcoming" }
+        required: false
+
+      - label: "Built-Up Area"
+        name: "built_up_area"
+        widget: "string"
+        required: false
+        hint: "e.g. 20,03,800 Sq. ft."
+
+      - label: "Site Area"
+        name: "site_area"
+        widget: "string"
+        required: false
+        hint: "e.g. 8.54 Acres"
+
+      - label: "Number of Towers"
+        name: "towers"
+        widget: "string"
+        required: false
+        hint: "e.g. 8 Towers"
+
+      - label: "NO.OF Units"
+        name: "units"
+        widget: "string"
+        required: false
+
+      - label: "Unit Type"
+        name: "unit_type"
+        widget: "string"
+        required: false
+        hint: "e.g. 3BHK, 4BHK"
+
+      - label: "Total Sqft"
+        name: "total_sqft"
+        widget: "string"
+        required: false
+
+      - label: "Budgets"
+        name: "budget"
+        widget: "string"
+        required: false
+
+      - label: "Special Features"
+        name: "special_features"
+        widget: "text"
+        required: false
+
+      - label: "Cover Image"
+        name: "cover_image"
+        widget: "image"
+        hint: "Main image shown on the portfolio grid — recommended 900×600px"
+
+      - label: "Project Gallery"
+        name: "gallery"
+        widget: "list"
+        allow_add: true
+        required: false
+        fields:
+          - label: "Image (Leave blank if Video)"
+            name: "image"
+            widget: "image"
+            required: false
+          - label: "Video (MP4)"
+            name: "video"
+            widget: "file"
+            required: false
+            hint: "Upload a video file (.mp4) or paste a video URL"
+          - label: "Caption"
+            name: "caption"
+            widget: "string"
+            required: false
+
+      - label: "Short Description"
+        name: "description"
+        widget: "text"
+        hint: "Shown on portfolio card — keep under 120 chars"
+
+      - label: "Full Project Story"
+        name: "body"
+        widget: "markdown"
+        required: false
+
+      - label: "Area (sq ft)"
+        name: "area"
+        widget: "string"
+        required: false
+
+      - label: "Featured on Home Page"
+        name: "featured"
+        widget: "boolean"
+        default: false
+
+      - label: "Sort Order"
+        name: "order"
+        widget: "number"
+        default: 99
+        hint: "Lower numbers appear first"
+
+
+  # ── 3. SERVICES ─────────────────────────
+  - name: "services"
+    label: "Services"
+    label_singular: "Service"
+    folder: "content/services"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Service Name"
+        name: "title"
+        widget: "string"
+
+      - label: "Icon (SVG path or emoji)"
+        name: "icon"
+        widget: "string"
+        hint: "Paste an SVG <path> d= value, or use an emoji like 🏛️"
+
+      - label: "Short Description"
+        name: "description"
+        widget: "text"
+        hint: "2–3 sentences shown on the services card"
+
+      - label: "Full Description"
+        name: "body"
+        widget: "markdown"
+        required: false
+
+      - label: "Enabled"
+        name: "enabled"
+        widget: "boolean"
+        default: true
+        hint: "Toggle off to hide this service without deleting it"
+
+      - label: "Sort Order"
+        name: "order"
+        widget: "number"
+        default: 99
+        hint: "Lower numbers appear first"
+
+
+  # ── 4. CLIENT REVIEWS / TESTIMONIALS ────
+  - name: "reviews"
+    label: "Client Reviews"
+    label_singular: "Review"
+    folder: "content/reviews"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Client Name"
+        name: "client_name"
+        widget: "string"
+
+      - label: "Project Type"
+        name: "project_type"
+        widget: "string"
+        required: false
+        hint: "e.g. 4BHK Villa, Hyderabad"
+
+      - label: "Rating (1–5)"
+        name: "rating"
+        widget: "number"
+        min: 1
+        max: 5
+        default: 5
+        value_type: "int"
+
+      - label: "Review Text"
+        name: "body"
+        widget: "markdown"
+
+      - label: "Client Photo"
+        name: "photo"
+        widget: "image"
+        required: false
+        hint: "Optional — square photo recommended, 200×200px"
+
+      - label: "Published"
+        name: "published"
+        widget: "boolean"
+        default: true
+
+      - label: "Sort Order"
+        name: "order"
+        widget: "number"
+        default: 99
