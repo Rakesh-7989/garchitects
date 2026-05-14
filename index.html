@@ -69,7 +69,8 @@
       pointer-events: none;
       z-index: 99999;
       transform: translate(-50%, -50%);
-      transition: width 0.3s, height 0.3s, background 0.3s;
+      transition: width 0.3s, height 0.3s, background 0.3s, opacity 0.3s;
+      opacity: 0;
     }
 
     .cursor-ring {
@@ -82,9 +83,14 @@
       z-index: 99998;
       transform: translate(-50%, -50%);
       transition: all 0.15s ease;
+      opacity: 0;
     }
 
-    body:hover .cursor {
+    .cursor.visible {
+      opacity: 1;
+    }
+
+    .cursor-ring.visible {
       opacity: 1;
     }
 

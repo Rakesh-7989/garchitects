@@ -1,19 +1,29 @@
-﻿---
-title: Nadhigama Villas Phase-2
+---
+title: Nadhigama Villas
 category: gated-community-layouts
-location: Nandhigama Phase-2, Hyderabad.
+location: Nandhigama, Hyderabad.
 year: 2025
 status: completed
-units: "12"
+built_up_area: 1,10,000 sq.ft.
+site_area: 2 Acres
+units: "39"
 unit_type: Villa
-budget: 25 CR
-cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama layout/3.plan.jpg
+budget: 42 CR
+special_features: Club House.
+cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama
+  layout/3.plan.jpg
 gallery:
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama layout/1.east face.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama layout/2.west face.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama layout/4.club house.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama layout/5.KIDS PLAY AREA-1.jpg
-description: Villa
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama
+      layout/1.east face.jpg
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama
+      layout/2.west face.jpg
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama
+      layout/4.club house.jpg
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama
+      layout/5.KIDS PLAY AREA-1.jpg
+description: |-
+  Phase-1 28 Villas
+  Phase-2 11 villas
 featured: true
 order: 99
 ---
