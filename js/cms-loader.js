@@ -63,17 +63,44 @@
       const key = line.slice(0, colon).trim();
       let   val = line.slice(colon + 1).trim();
 
+      // Read indented continuation lines
+      while (i + 1 < lines.length && !lines[i + 1].includes(':') && !lines[i + 1].trim().startsWith('-') && lines[i + 1].startsWith(' ')) {
+        val += ' ' + lines[i + 1].trim();
+        i++;
+      }
+
       if (val.startsWith('[')) {
         meta[key] = val.slice(1, val.lastIndexOf(']'))
           .split(',').map(s => s.trim().replace(/^["']|["']$/g, '')).filter(Boolean);
         i++; continue;
       }
 
-      if (val === '' && lines[i + 1] && lines[i + 1].trim().startsWith('-')) {
+      if (val === '' && i + 1 < lines.length && lines[i + 1].trim().startsWith('-')) {
         const arr = [];
         i++;
         while (i < lines.length && lines[i].trim().startsWith('-')) {
-          arr.push(lines[i].trim().slice(1).trim().replace(/^["']|["']$/g, ''));
+          let itemVal = lines[i].trim().slice(1).trim().replace(/^["']|["']$/g, '');
+          // Array item continuation lines
+          while (i + 1 < lines.length && !lines[i + 1].includes(':') && !lines[i + 1].trim().startsWith('-') && lines[i + 1].startsWith(' ')) {
+            itemVal += ' ' + lines[i + 1].trim();
+            i++;
+          }
+          // If it's a key-value object in the array (e.g. - image: url)
+          const objColon = itemVal.indexOf(':');
+          if (objColon !== -1 && !itemVal.startsWith('http')) {
+            const objKey = itemVal.slice(0, objColon).trim();
+            const objVal = itemVal.slice(objColon + 1).trim();
+            const obj = {};
+            obj[objKey] = objVal;
+            // Hacky fallback for manual parser array objects
+            if (i + 1 < lines.length && lines[i + 1].trim().startsWith('caption:')) {
+               obj.caption = lines[i+1].slice(lines[i+1].indexOf(':')+1).trim();
+               i++;
+            }
+            arr.push(obj);
+          } else {
+            arr.push(itemVal);
+          }
           i++;
         }
         meta[key] = arr;
@@ -230,7 +257,7 @@
 
         const initials = (m.client_name || 'C').split(/\s+/).map(function(w) { return w[0]; }).slice(0, 2).join('');
         const avatar   = m.photo
-          ? '<img src="' + m.photo + '" alt="' + (m.client_name || '') + '" onerror="this.style.display=\'none\';this.parentElement.textContent=\'' + initials + '\';">'
+          ? '<img src="' + encodeURI(m.photo) + '" alt="' + (m.client_name || '') + '" onerror="this.style.display=\'none\';this.parentElement.textContent=\'' + initials + '\';">'
           : '<span>' + initials + '</span>';
 
         const starStr = '★'.repeat(Math.max(1, Math.min(5, m.rating || 5)));
@@ -278,7 +305,7 @@
 
     grid.innerHTML = sorted.map(function(item, i) {
       const m   = item.meta;
-      const bgStyle = m.cover_image ? 'background-image:url(\'' + m.cover_image + '\')' : '';
+      const bgStyle = m.cover_image ? 'background-image:url(\'' + encodeURI(m.cover_image) + '\')' : '';
       
       const safeTitle = encodeURIComponent(m.title || '');
       
