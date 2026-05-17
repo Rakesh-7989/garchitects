@@ -15,7 +15,7 @@ cloudinary.config({
   api_secret: 'ybglKbPCZQv9ccGixr7fg9E8554'
 });
 
-const UPLOADS_DIR  = './images/uploads';
+const UPLOADS_DIR  = './images1/uploads';
 const CLOUD_FOLDER = 'garchitects';
 const IMAGE_EXTS   = /\.(jpg|jpeg|png|gif|webp|svg|JPG|JPEG|PNG)$/;
 

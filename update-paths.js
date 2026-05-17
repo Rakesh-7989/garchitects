@@ -9,7 +9,7 @@ const path = require('path');
 
 const CLOUD_NAME = 'dh4efeksi';
 const BASE_URL   = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/garchitects`;
-const OLD_PATH   = '/images/uploads/';
+const OLD_PATH   = '/images1/uploads/';
 
 let totalFixed = 0;
 

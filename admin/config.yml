@@ -8,8 +8,8 @@ local_backend: true
 publish_mode: editorial_workflow
 
 # Media / uploads
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "images1/uploads"
+public_folder: "/images1/uploads"
 
 # Site URL (update with your actual domain)
 site_url: https://garchitects.com

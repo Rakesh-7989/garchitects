@@ -307,7 +307,7 @@
       const m   = item.meta;
       const bgStyle = m.cover_image ? 'background-image:url(\'' + encodeURI(m.cover_image) + '\')' : '';
       
-      const safeTitle = encodeURIComponent(m.title || '');
+      const safeTitle = encodeURIComponent(m.title || '').replace(/'/g, "%27");
       
       const specs = {
         category: catLabel(m.category),
@@ -322,13 +322,13 @@
         location: m.location,
         special_features: m.special_features
       };
-      const safeSpecs = encodeURIComponent(JSON.stringify(specs));
+      const safeSpecs = encodeURIComponent(JSON.stringify(specs)).replace(/'/g, "%27");
       
       let galleryArr = m.gallery || [];
       if (!galleryArr.length && m.cover_image) {
         galleryArr = [{ image: m.cover_image, caption: m.title }];
       }
-      const safeGallery = encodeURIComponent(JSON.stringify(galleryArr));
+      const safeGallery = encodeURIComponent(JSON.stringify(galleryArr)).replace(/'/g, "%27");
       
       const onClickStr = 'onclick="openGallery(decodeURIComponent(\'' + safeTitle + '\'), \'' + safeSpecs + '\', \'' + safeGallery + '\')"';
 

@@ -10,43 +10,44 @@ units: "75 "
 unit_type: Villa
 total_sqft: "2,52,000 sq.ft. "
 budget: 112 CR
-special_features: CULB HOUSE, Children's Play Area, In-door & Out-door GYM,
-  In-door& Out-door Play Zones, Open Party Area, Conference & Meeting Rooms,
-  Ampthitherate, Banquet Hall, Swimming Pool.
-cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/1.entrance
-  gate.jpg
+special_features: CLUB HOUSE, Childrens Play Area, In-door & Out-door GYM,
+  In-door & Out-door Play Zones, Open Party Area, Conference & Meeting Rooms,
+  Amphitheatre, Banquet Hall, Swimming Pool.
+cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+  VILLAS/kardhanoor/SIRI/Compressed/14.15.SITE MAP.webp
 gallery:
-  - video: https://www.youtube.com/watch?v=dQw4w9WgXcQ
-    caption: Sample YouTube Video
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/2.EAST
-      VIEW.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/3.WEST
-      VIEW.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/4.SITE
-      PLAN.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/5.arial
-      view.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/6.east
-      elevation.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/7.west
-      elevation.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/8.ganesh
-      idiol front view.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/9.ganesh
-      idiol.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/10.open
-      pargola.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/11.pathway.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/12.open
-      gym.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/13.swimming
-      pool.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/14.park.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/15.sand
-      pit  2.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/16.park
-      path.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/SIRI/kardhanoor/park.jpg
+  - video: https://youtu.be/Tn-PWMCFmuU?si=wSzoGUryTI88f7jh
+    caption: YouTube Walkthrough
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/2,3.ARCH.webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/4.EAST ELEVATION.webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/5.EAST FLOOR PLANS 32'6.webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/6.WEST ELEVATION.webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/7.WEST FLOOR PLANS 32'6.webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/8.EAST FACE BROUCHER (36x50).webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/9.WEST FACE BROUCHER (36x50).webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/10,11.CLUB HOUSE.webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/12,13.SITE VIEW.webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/14.15.SITE MAP.webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/16. SWIMMING POOL AND PLAY.webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/18,19.east west.webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/20,21.VIEWS.webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/club house.webp
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/SIRI
+      VILLAS/kardhanoor/SIRI/Compressed/park.webp
 description: Villa
 featured: true
 order: 1

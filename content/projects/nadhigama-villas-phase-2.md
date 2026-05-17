@@ -10,17 +10,19 @@ units: "39"
 unit_type: Villa
 budget: 42 CR
 special_features: Club House.
-cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama
-  layout/3.plan.jpg
+cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/Nadhigama
+  Villas/2.west face.jpg
 gallery:
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama
-      layout/1.east face.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama
-      layout/2.west face.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama
-      layout/4.club house.jpg
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/nandigama
-      layout/5.KIDS PLAY AREA-1.jpg
+  - video: https://youtu.be/4p-COiAccPc?si=usjCGRX7wYvicbP9
+    caption: ""
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/Nadhigama
+      Villas/1.east face.jpg
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/Nadhigama
+      Villas/2.west face.jpg
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/Nadhigama
+      Villas/4.club house.jpg
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/Nadhigama
+      Villas/5.KIDS PLAY AREA-1.jpg
 description: |-
   Phase-1 28 Villas
   Phase-2 11 villas

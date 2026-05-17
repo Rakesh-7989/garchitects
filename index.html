@@ -3292,114 +3292,104 @@
   </a>
 
   <!-- ═══════════════════════════════════════════
-       PROJECT GALLERY MODAL
+       PROJECT GALLERY MODAL (GRID / SCROLL VIEW)
   ═══════════════════════════════════════════ -->
   <style>
-    #projectModal { display:none;position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,0.97);overflow-y:auto; }
-    .pm-wrap { max-width:1300px;margin:0 auto;padding:56px 16px 40px; }
-    .pm-header { display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;position:sticky;top:0;background:rgba(0,0,0,.92);padding:10px 0;z-index:10;border-bottom:1px solid rgba(201,169,110,.15); }
-    .pm-title { font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#c9a96e;letter-spacing:.1em;text-transform:uppercase;margin:0; }
-    .pm-close { background:none;border:1px solid rgba(201,169,110,.4);color:#c9a96e;font-size:1.5rem;cursor:pointer;width:40px;height:40px;border-radius:50%;flex-shrink:0; }
-    .pm-body  { display:flex;gap:28px;align-items:flex-start; }
-    .pm-left  { flex:1;min-width:0; }
-    .pm-viewer{ width:100%;aspect-ratio:16/9;background:#111;border-radius:6px;overflow:hidden;position:relative;margin-bottom:10px; }
-    .pm-viewer img,.pm-viewer>div{ width:100%;height:100%; }
-    .pm-viewer img{ object-fit:cover;display:block; }
-    .pm-arrow { position:absolute;top:50%;transform:translateY(-50%);background:rgba(201,169,110,.2);border:1px solid #c9a96e;color:#c9a96e;font-size:1.4rem;width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center; }
-    .pm-arrow-l{ left:8px; } .pm-arrow-r{ right:8px; }
-    .pm-counter{ position:absolute;bottom:8px;right:12px;background:rgba(0,0,0,.6);color:#c9a96e;font-size:.75rem;padding:2px 10px;border-radius:20px; }
-    .pm-thumbs { display:flex;gap:6px;overflow-x:auto;padding-bottom:6px; }
-    .pm-thumbs::-webkit-scrollbar{ height:4px; } .pm-thumbs::-webkit-scrollbar-thumb{ background:#c9a96e44;border-radius:2px; }
-    .pm-right  { width:260px;flex-shrink:0; }
-    .pm-spec   { border-bottom:1px solid rgba(201,169,110,.15);padding:11px 0; }
-    .pm-spec-label{ font-size:.65rem;letter-spacing:.1em;color:#888;text-transform:uppercase;margin-bottom:3px; }
-    .pm-spec-val  { color:#e8dcc8;font-size:.92rem;line-height:1.4; }
-    @media(max-width:700px){
-      .pm-title{ font-size:1.2rem; }
-      .pm-body { flex-direction:column; }
-      .pm-right{ width:100%;margin-top:16px; }
-      .pm-specs-heading{ display:block!important; }
+    #projectModal { display:none;position:fixed;inset:0;z-index:100000;background:#050505;overflow-y:auto; overflow-x:hidden; }
+    .pm-close { position:fixed;top:20px;left:20px;background:rgba(0,0,0,0.5);border:1px solid rgba(201,169,110,.4);color:#c9a96e;font-size:1.5rem;cursor:pointer;width:40px;height:40px;border-radius:50%;z-index:100001;display:flex;align-items:center;justify-content:center;transition:all 0.3s;backdrop-filter:blur(5px); }
+    .pm-close:hover { background:rgba(201,169,110,.2);transform:scale(1.1); }
+    .pm-wrap { display:flex;max-width:1600px;margin:0 auto;min-height:100vh; }
+    
+    .pm-left { flex:1;padding:60px 40px;display:flex;flex-direction:column;gap:40px; }
+    .pm-slide { width:100%;border-radius:6px;overflow:hidden;background:#0a0a0a; }
+    .pm-slide img, .pm-slide video { width:100%;height:auto;display:block; }
+    .pm-slide iframe { width:100%;aspect-ratio:16/9;border:none;display:block; }
+    .pm-caption { padding:12px;text-align:center;font-size:0.85rem;color:#888;font-style:italic; }
+
+    .pm-right { width:380px;flex-shrink:0;background:#080808;border-left:1px solid rgba(255,255,255,0.03);padding:60px 40px;position:sticky;top:0;height:100vh;overflow-y:auto; }
+    .pm-right::-webkit-scrollbar { width:4px; }
+    .pm-right::-webkit-scrollbar-thumb { background:#c9a96e44;border-radius:2px; }
+    
+    .pm-title { font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#c9a96e;letter-spacing:.1em;text-transform:uppercase;margin:0 0 40px 0;line-height:1.3; }
+    
+    .pm-spec { padding:18px 20px;background:#0d0d0d;border:1px solid rgba(255,255,255,0.02);border-left:2px solid transparent;border-radius:4px;margin-bottom:15px;transition:all 0.3s; }
+    .pm-spec:hover { border-left-color:#c9a96e;background:#111;transform:translateX(2px); }
+    .pm-spec-label { font-size:.65rem;letter-spacing:.15em;color:#c9a96e;text-transform:uppercase;margin-bottom:6px;display:block;font-weight:600; }
+    .pm-spec-val { color:#eaeaea;font-size:.95rem;line-height:1.4;display:block; }
+
+    @media(max-width:900px){
+      .pm-wrap { flex-direction:column; }
+      .pm-left { padding:60px 20px 20px; order:2; }
+      .pm-right { width:100%;position:static;height:auto;border-left:none;border-bottom:1px solid rgba(255,255,255,0.05);padding:60px 20px 30px; order:1; }
+      .pm-close { top:15px;right:15px;left:auto; }
     }
   </style>
 
   <div id="projectModal">
+    <button class="pm-close" onclick="closeGallery()" aria-label="Close">✕</button>
     <div class="pm-wrap">
-      <!-- Sticky header -->
-      <div class="pm-header">
-        <h2 id="modalTitle" class="pm-title"></h2>
-        <button class="pm-close" onclick="closeGallery()" aria-label="Close">✕</button>
+      <div class="pm-left" id="modalMainMedia">
+        <!-- Media items injected here -->
       </div>
-
-      <div class="pm-body">
-        <!-- LEFT: slideshow -->
-        <div class="pm-left">
-          <div class="pm-viewer" id="modalMainMedia">
-            <img id="modalMainImg" src="" alt="" />
-            <div id="modalMainVideo" style="display:none;"></div>
-            <button class="pm-arrow pm-arrow-l" onclick="galleryPrev()">‹</button>
-            <button class="pm-arrow pm-arrow-r" onclick="galleryNext()">›</button>
-            <div class="pm-counter" id="galleryCounter"></div>
-          </div>
-          <!-- Thumbnail strip -->
-          <div class="pm-thumbs" id="modalThumbs"></div>
-        </div>
-
-        <!-- RIGHT: specs -->
-        <div class="pm-right">
-          <div style="font-size:.7rem;letter-spacing:.15em;color:#c9a96e;text-transform:uppercase;margin-bottom:10px;display:none;" class="pm-specs-heading">Project Details</div>
-          <div id="modalSpecs"></div>
-        </div>
+      <div class="pm-right">
+        <h2 id="modalTitle" class="pm-title"></h2>
+        <div id="modalSpecs"></div>
       </div>
     </div>
   </div>
 
   <script>
-    /* ── Project Gallery Modal ── */
-    let _gallery = [], _galIdx = 0;
-
+    /* ── Project Gallery Modal (Scroll View) ── */
     function openGallery(title, specsEncoded, galleryEncoded) {
       try {
         const specs   = JSON.parse(decodeURIComponent(specsEncoded));
         const gallery = JSON.parse(decodeURIComponent(galleryEncoded));
-        _gallery = gallery;
-        _galIdx  = 0;
 
         document.getElementById('modalTitle').textContent = title;
 
-        // Specs panel
         const specLabels = {
           category:'Project Type', status:'Project Status',
           built_up_area:'Built-Up Area', site_area:'Site Area',
           towers:'No. of Towers', units:'No. of Units',
-          unit_type:'Unit Type', total_sqft:'Total Sq.ft.',
+          unit_type:'Unit Type', total_sqft:'Total Sqft',
           budget:'Budget', location:'Location',
           special_features:'Special Features'
         };
+        
         let specHtml = '';
         Object.keys(specLabels).forEach(function(k) {
           if (specs[k]) {
             specHtml += '<div class="pm-spec">'
-              + '<div class="pm-spec-label">' + specLabels[k] + '</div>'
-              + '<div class="pm-spec-val">' + specs[k] + '</div>'
+              + '<span class="pm-spec-label">' + specLabels[k] + '</span>'
+              + '<span class="pm-spec-val">' + specs[k] + '</span>'
               + '</div>';
           }
         });
         document.getElementById('modalSpecs').innerHTML = specHtml;
 
-        // Thumbnails
-        let thumbHtml = '';
-        gallery.forEach(function(item, i) {
-          const isVid = !item.image && item.video;
-          const src = item.image ? encodeURI(item.image) : '';
-          const border = i === 0 ? '#c9a96e' : 'transparent';
-          const thumb = isVid
-            ? '<div style="width:72px;height:50px;flex-shrink:0;background:#222;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;cursor:pointer;border:2px solid ' + border + ';" onclick="galGoTo(' + i + ')" id="gthumb' + i + '">&#9654;</div>'
-            : '<img src="' + src + '" alt="" style="width:72px;height:50px;flex-shrink:0;object-fit:cover;border-radius:3px;cursor:pointer;border:2px solid ' + border + ';display:block;" onclick="galGoTo(' + i + ')" id="gthumb' + i + '" onerror="this.style.opacity=0.3">';
-          thumbHtml += thumb;
-        });
-        document.getElementById('modalThumbs').innerHTML = thumbHtml;
+        let mediaHtml = '';
+        gallery.forEach(function(item, idx) {
+          const rawUrl = item.video || item.image || '';
+          const ytMatch = rawUrl.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/|live\/)|youtu\.be\/)([\w\-]{11})/i);
+          const ytId = ytMatch ? ytMatch[1] : null;
+          
+          let inner = '';
+          if (ytId) {
+            const autoplay = idx === 0 ? '&autoplay=1&mute=1' : '';
+            inner = '<iframe src="https://www.youtube.com/embed/' + ytId + '?rel=0&modestbranding=1' + autoplay + '" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>';
+          } else if (item.video && !item.image) {
+            const autoplay = idx === 0 ? 'autoplay muted' : '';
+            inner = '<video src="' + encodeURI(item.video) + '" controls loop playsinline ' + autoplay + '></video>';
+          } else if (item.image) {
+            inner = '<img src="' + encodeURI(item.image) + '" alt="" loading="lazy" onerror="this.style.opacity=0.3">';
+          }
 
-        galGoTo(0);
+          if (inner) {
+            let capHtml = item.caption ? '<div class="pm-caption">' + item.caption + '</div>' : '';
+            mediaHtml += '<div class="pm-slide">' + inner + capHtml + '</div>';
+          }
+        });
+        document.getElementById('modalMainMedia').innerHTML = mediaHtml;
 
         document.getElementById('projectModal').style.display = 'block';
         document.body.style.overflow = 'hidden';
@@ -3408,62 +3398,21 @@
       }
     }
 
-    function galGoTo(idx) {
-      if (!_gallery.length) return;
-      idx = (idx + _gallery.length) % _gallery.length;
-      _galIdx = idx;
-
-      // Highlight thumb
-      _gallery.forEach(function(_, i) {
-        const t = document.getElementById('gthumb' + i);
-        if (t) t.style.borderColor = (i === idx) ? '#c9a96e' : 'transparent';
-      });
-
-      document.getElementById('galleryCounter').textContent = (idx + 1) + ' / ' + _gallery.length;
-
-      const item  = _gallery[idx];
-      const img   = document.getElementById('modalMainImg');
-      const vidWr = document.getElementById('modalMainVideo');
-
-      if (item.image) {
-        img.src = encodeURI(item.image);
-        img.style.display = 'block';
-        vidWr.style.display = 'none';
-        vidWr.innerHTML = '';
-      } else if (item.video) {
-        img.style.display = 'none';
-        vidWr.style.display = 'block';
-        // YouTube embed or video tag
-        if (item.video.includes('youtube.com') || item.video.includes('youtu.be')) {
-          const vid = item.video.replace('watch?v=','embed/').replace('youtu.be/','www.youtube.com/embed/');
-          vidWr.innerHTML = '<iframe src="' + vid + '" style="width:100%;height:100%;border:none;" allowfullscreen></iframe>';
-        } else {
-          vidWr.innerHTML = '<video src="' + item.video + '" controls style="width:100%;height:100%;object-fit:contain;"></video>';
-        }
-      }
-    }
-
-    function galleryNext() { galGoTo(_galIdx + 1); }
-    function galleryPrev() { galGoTo(_galIdx - 1); }
-
     function closeGallery() {
       document.getElementById('projectModal').style.display = 'none';
       document.body.style.overflow = '';
-      document.getElementById('modalMainVideo').innerHTML = '';
+      document.getElementById('modalMainMedia').innerHTML = '';
     }
 
-    // Close on backdrop click
     document.getElementById('projectModal').addEventListener('click', function(e) {
-      if (e.target === this) closeGallery();
+      if (e.target === this || e.target.classList.contains('pm-wrap') || e.target.classList.contains('pm-left')) {
+        closeGallery();
+      }
     });
 
-    // Keyboard nav
     document.addEventListener('keydown', function(e) {
       const m = document.getElementById('projectModal');
-      if (m.style.display === 'none') return;
-      if (e.key === 'Escape')      closeGallery();
-      if (e.key === 'ArrowRight')  galleryNext();
-      if (e.key === 'ArrowLeft')   galleryPrev();
+      if (m && m.style.display === 'block' && e.key === 'Escape') closeGallery();
     });
   </script>
 
@@ -3630,105 +3579,8 @@
     }
   </script>
 
-  <!-- Project Gallery Modal -->
-  <div class="gallery-modal" id="galleryModal">
-    <div class="gallery-main">
-      <div class="gallery-modal-close" onclick="closeGallery()">✕</div>
-      <div class="gallery-modal-content" id="galleryContent">
-        <!-- Slides will be injected here -->
-      </div>
-      <!-- Controls removed for grid -->
-    </div>
-
-    <div class="gallery-sidebar">
-      <h3 id="galleryTitle"></h3>
-      <div class="gallery-specs" id="gallerySpecs">
-        <!-- Specs will be injected here -->
-      </div>
-    </div>
-  </div>
-
+  <!-- Removed duplicate galleryModal block -->
   <script>
-    let galleryAutoScroll;
-
-    function openGallery(title, specsJson, galleryJson) {
-      const modal = document.getElementById('galleryModal');
-      const content = document.getElementById('galleryContent');
-      const specsContainer = document.getElementById('gallerySpecs');
-
-      document.getElementById('galleryTitle').textContent = title;
-
-      let specs = {};
-      try { specs = JSON.parse(decodeURIComponent(specsJson)); } catch (e) { }
-
-      const specFields = [
-        { label: 'Project Type', value: specs.category },
-        { label: 'Project Status', value: specs.status },
-        { label: 'Built-up Area', value: specs.built_up_area },
-        { label: 'Site Area', value: specs.site_area },
-        { label: 'No. of Towers', value: specs.towers },
-        { label: 'NO.OF Units', value: specs.units },
-        { label: 'Unit Type', value: specs.unit_type },
-        { label: 'Total Sqft', value: specs.total_sqft },
-        { label: 'Budgets', value: specs.budget },
-        { label: 'Location', value: specs.location },
-        { label: 'Special Features', value: specs.special_features }
-      ];
-
-      specsContainer.innerHTML = specFields
-        .filter(f => f.value)
-        .map(f => `
-          <div class="spec-item">
-            <span class="spec-label">${f.label}</span>
-            <span class="spec-value">${f.value}</span>
-          </div>
-        `).join('');
-
-      let gallery = [];
-      try { gallery = JSON.parse(decodeURIComponent(galleryJson)); } catch (e) { }
-
-      if (!gallery || gallery.length === 0) return;
-
-      content.innerHTML = gallery.map(item => {
-        let mediaHtml = `<img src="${item.image}" alt="">`;
-        if (item.video) {
-          const ytMatch = item.video.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([\w\-]{11})/i);
-          if (ytMatch && ytMatch[1]) {
-            const ytId = ytMatch[1];
-            mediaHtml = `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&loop=1&playlist=${ytId}&controls=1&modestbranding=1" allow="autoplay; fullscreen"></iframe>`;
-          } else {
-            mediaHtml = `<video src="${item.video}" autoplay loop controls playsinline></video>`;
-          }
-        }
-        return `
-        <div class="gallery-slide">
-          ${mediaHtml}
-          <div class="gallery-slide-caption">${item.caption || ''}</div>
-        </div>
-        `;
-      }).join('');
-
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-
-      // Grid format, no auto-scroll needed.
-    }
-
-    function closeGallery() {
-      document.getElementById('galleryModal').classList.remove('open');
-      document.body.style.overflow = '';
-      clearInterval(galleryAutoScroll);
-    }
-
-    document.addEventListener('keydown', (e) => {
-      const modal = document.getElementById('galleryModal');
-      if (modal && modal.classList.contains('open')) {
-        if (e.key === 'Escape') {
-          closeGallery();
-        }
-      }
-    });
-
     // Testimonials horizontal scroll
     function scrollTesti(dir) {
       const grid = document.getElementById('reviews-dynamic-grid');

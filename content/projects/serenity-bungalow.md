@@ -11,8 +11,11 @@ units: 4 Floor
 unit_type: 3BHK
 total_sqft: 7,200 sq.ft.
 budget: 4 CR
-cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE
-  KOUSIK/Independent/KONDAPUR/kondapur apartment option 6 without wall.jpg
+cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/FOUR
+  STOREY APARTMENT/kondapur apartment option 6 without wall.jpg
+gallery:
+  - video: ""
+    caption: ""
 description: Each floor 3BHK Residence.
 featured: true
 order: 5
