@@ -9,7 +9,6 @@ budget: 20 Lakhs
 cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Upcoming/Supriya/accent
   wall-1.png
 gallery:
-
   - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Upcoming/Supriya/accent
       wall.png
     caption: Living Room Accent Wall – Textured Feature Design

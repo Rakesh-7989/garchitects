@@ -1,4 +1,4 @@
-﻿---
+---
 title: Satish 3BHK
 category: interior
 location: NARSINGI
@@ -8,7 +8,6 @@ budget: 15 Lakhs
 cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/INTERIORS/Satish
   3BHK/Compressed/kitchen.webp
 gallery:
-
   - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/INTERIORS/Satish
       3BHK/Compressed/children bedroom study.webp
     caption: Children's Bedroom – Integrated Study Area

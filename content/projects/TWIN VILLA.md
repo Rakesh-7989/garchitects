@@ -12,7 +12,6 @@ budget: 3 CR
 cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/TWIN
   VILLA/Compressed/elevation-1.webp
 gallery:
-
   - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/TWIN
       VILLA/Compressed/elevation-1.webp
     caption: Front Elevation – Modern Twin Villa Design

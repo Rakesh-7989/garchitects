@@ -7,7 +7,6 @@ status: completed
 cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/Mr.
   Kondal Rao Residence/Compressed/kondal rao elevation 5-3.webp
 gallery:
-
   - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/Mr.
       Kondal Rao Residence/Compressed/kondal rao elevation 5-3.webp
     caption: Front Elevation – Contemporary Independent House

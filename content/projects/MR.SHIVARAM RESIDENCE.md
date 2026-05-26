@@ -1,4 +1,4 @@
-﻿---
+---
 title: MR.SHIVARAM RESIDENCE
 category: interior
 location: NANDIGAMA, HYDERABAD
@@ -7,7 +7,6 @@ budget: 10 Lakhs
 cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/INTERIORS/MR.SHIVARAM
   RESIDENCE/daughter bedroom wardrobe-1.png
 gallery:
-
   - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/INTERIORS/MR.SHIVARAM
       RESIDENCE/daughter bedroom wardrobe-1.png
     caption: Daughter's Bedroom – Custom Wardrobe Design

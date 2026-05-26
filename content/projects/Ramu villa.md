@@ -10,7 +10,6 @@ budget: 25 Lakhs
 cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/INTERIORS/Ramu
   villa/1.gf tv unit new option [5-12-2023].jpg
 gallery:
-
   - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/INTERIORS/Ramu
       villa/1.gf tv unit new option [5-12-2023].jpg
     caption: Ground Floor TV Unit – Modern Entertainment Wall
