@@ -19,4 +19,5 @@ gallery:
 description: Each floor 3BHK Residence.
 featured: true
 order: 5
+short_description: "FOUR STOREY APARTMENT is a premium residential project located in Serilingampally, Hyderabad. The project spanning 7,200 sq.ft. with a budget of 4 CR, planned for 2025. This project is successfully completed."
 ---

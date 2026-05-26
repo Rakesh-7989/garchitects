@@ -4,6 +4,42 @@ const path = require('path');
 
 let PORT = 5500;
 
+// Automatically update manifest.json files
+const collections = ['articles', 'projects', 'services', 'reviews'];
+const baseDir = path.join(__dirname, 'content');
+
+function updateManifests() {
+  try {
+    for (const col of collections) {
+      const dir = path.join(baseDir, col);
+      if (!fs.existsSync(dir)) continue;
+
+      const files = fs.readdirSync(dir)
+        .filter(f => f.endsWith('.md'))
+        .sort();
+
+      const manifestPath = path.join(dir, 'manifest.json');
+      fs.writeFileSync(manifestPath, JSON.stringify(files, null, 2));
+    }
+    console.log('[MANIFEST] All manifest.json files updated automatically.');
+  } catch (err) {
+    console.error('[MANIFEST] Error updating manifests:', err);
+  }
+}
+
+// Initial update on server start
+updateManifests();
+
+// Watch content folder for live updates
+if (fs.existsSync(baseDir)) {
+  fs.watch(baseDir, { recursive: true }, (eventType, filename) => {
+    if (filename && filename.endsWith('.md')) {
+      console.log(`[WATCH] Markdown file changed: ${filename}. Updating manifests...`);
+      updateManifests();
+    }
+  });
+}
+
 const MIME_TYPES = {
   '.html': 'text/html',
   '.js': 'text/javascript',
@@ -11,6 +47,8 @@ const MIME_TYPES = {
   '.json': 'application/json',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
   '.gif': 'image/gif',
   '.svg': 'image/svg+xml',
   '.md': 'text/markdown'
@@ -19,9 +57,14 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   console.log(`[REQUEST] ${req.method} ${req.url}`);
   
-  let filePath = '.' + req.url.split('?')[0];
+  let filePath = '.' + decodeURIComponent(req.url.split('?')[0]);
   if (filePath === './') {
     filePath = './index.html';
+  }
+
+  // Regenerate manifests on the fly when requested
+  if (filePath.includes('manifest.json')) {
+    updateManifests();
   }
 
   // If path ends with '/' or has no extension, check if it's a directory
