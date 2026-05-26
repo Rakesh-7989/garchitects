@@ -1,46 +1,68 @@
 ---
 title: Villa-71 (Interiors)
 category: interior
-location: kandhanur, Hyderabad
+location: Kandhanur, Hyderabad
 year: 2026
 status: upcoming
 budget: 25 Lakhs
-cover_image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\mbr.png
+cover_image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/gf living.webp
 gallery:
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\gf
-      living.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\k4.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\kitchen.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\k1.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\k2.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\Picture1.png
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\Picture2.png
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\g2-2.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\g2-1.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\ff
-      -study.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\ff
-      -study 2.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\mbr.png
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\MBR-dresser.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\CBR'.png
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\ff
-      cbr study.1.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\CBR-
-      dresser.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\CBR-
-      walkin..webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\CBR-
-      walkin.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\SF.MBR...webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\SF.MBR.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\home
-      theater.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\home
-      & bar 1.webp
-  - image: C:\Users\boyap\garchitects\images1\uploads\WEBSITE\INTERIORS\Villa-71\home
-      & bar.webp
-description: villa interiors.
-featured: false
-order: 99
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/gf living.webp
+    caption: Ground Floor – Open Living Space
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/k4.webp
+    caption: Kitchen – Elegant Layout View 4
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/kitchen.webp
+    caption: Kitchen – Full View with Finishes
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/k1.webp
+    caption: Kitchen – Design View 1
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/k2.webp
+    caption: Kitchen – Design View 2
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/k3.webp
+    caption: Kitchen – Design View 3
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/Enscape_2026-03-01-19-59-59.webp
+    caption: Interior Render – Living Area Perspective
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/Enscape_2026-03-09-22-11-25.webp
+    caption: Interior Render – Detailed Room View
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/g2-2.webp
+    caption: Guest Bedroom 2 – Full View
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/g2-1.webp
+    caption: Guest Bedroom 2 – Alternate Angle
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/ff -study.webp
+    caption: First Floor – Study Room Design
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/ff -study 2.webp
+    caption: First Floor – Study Room Alternate View
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/ff cbr study.1.webp
+    caption: First Floor – Children's Bedroom Study View 1
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/ff cbr study.2.webp
+    caption: First Floor – Children's Bedroom Study View 2
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/mbr.png
+    caption: Master Bedroom – Luxurious Overview
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/MBR-dresser.webp
+    caption: Master Bedroom – Dresser & Vanity Area
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/SF.MBR.webp
+    caption: Second Floor – Master Bedroom View
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/SF.MBR...webp
+    caption: Second Floor – Master Bedroom Alternate View
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/CBR- dresser.webp
+    caption: Children's Bedroom – Dresser Area
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/CBR- walkin.webp
+    caption: Children's Bedroom – Walk-in Wardrobe
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/CBR- walkin..webp
+    caption: Children's Bedroom – Wardrobe Interior View
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/home theater.webp
+    caption: Home Theatre – Immersive Entertainment Room
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/home & bar 1.webp
+    caption: Home Bar – Stylish Bar Design View 1
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/home & bar.webp
+    caption: Home Bar – Premium Bar Counter Design
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/Picture1.png
+    caption: Interior Concept Overview 1
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/Picture2.png
+    caption: Interior Concept Overview 2
+  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/CBR'.png
+    caption: Children's Bedroom – Design Concept
+description: Luxury villa interior design with premium finishes across all floors
+featured: true
+order: 4
+short_description: "Villa-71 is a premium interior design project in Kandhanur, Hyderabad with a budget of 25 Lakhs, featuring elegant interiors with home theatre, bar, and luxurious bedrooms across multiple floors."
 ---
