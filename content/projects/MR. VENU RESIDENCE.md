@@ -56,5 +56,5 @@ description: VILLA
 area: ""
 featured: true
 order: 1
-short_description: ""MR. VENU RESIDENCE " is a premium interior design project located in NANDIGAMA, HYDERABAD. The project with a budget of 25 Lakhs, planned for 2025. This project is successfully completed."
+short_description: "MR. VENU RESIDENCE is a premium interior design project located in NANDIGAMA, HYDERABAD. The project with a budget of 25 Lakhs, planned for 2025. This project is successfully completed."
 ---

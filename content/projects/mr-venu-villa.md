@@ -1,4 +1,4 @@
----
+﻿---
 title: MR. Venu Villa
 category: residential
 location: Nandigama Phase-2, Hyderabad
@@ -11,8 +11,7 @@ budget: 1.5 CR
 cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/MR.
   Venu Villa/Compressed/view 1.webp
 gallery:
-  - video: ""
-    caption: ""
+
   - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/MR.
       Venu Villa/Compressed/Enscape_2024-11-21-16-27-41.webp
     caption: Living Room – Elegant Interior 3D Render

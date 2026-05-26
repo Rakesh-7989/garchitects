@@ -14,8 +14,8 @@ budget: 4 CR
 cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/FOUR
   STOREY APARTMENT/kondapur apartment option 6 without wall.jpg
 gallery:
-  - video: ""
-    caption: ""
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/FOUR STOREY APARTMENT/kondapur apartment option 6 without wall.jpg
+    caption: Four Storey Apartment – Front Elevation Design
 description: Each floor 3BHK Residence.
 featured: true
 order: 5
