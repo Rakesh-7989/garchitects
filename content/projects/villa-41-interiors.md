@@ -17,7 +17,7 @@ gallery:
     caption: GUEST BEDROOM
   - image: https://res.cloudinary.com/dh4efeksi/image/upload/v1780473006/image-4_pgscgz.jpg
     caption: Children Bedroom
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/v1780473006/image-2_wv4yad.jpg
+  - image: https://res.cloudinary.com/dh4efeksi/image/upload/v1780473006/image-3_gbdky6.jpg
     caption: GUEST BEDROOM
 description: VILLA
 featured: false
