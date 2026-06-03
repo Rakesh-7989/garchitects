@@ -18,7 +18,7 @@ gallery:
   - image: https://res.cloudinary.com/dh4efeksi/image/upload/v1780473006/image-4_pgscgz.jpg
     caption: Children Bedroom
   - image: https://res.cloudinary.com/dh4efeksi/image/upload/v1780473006/image-3_gbdky6.jpg
-    caption: GUEST BEDROOM
+    caption: GYM
 description: VILLA
 featured: false
 order: 99
