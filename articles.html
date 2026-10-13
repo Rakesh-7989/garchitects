@@ -4,10 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Design Journal | G Architects — Architecture & Interior Design Insights</title>
+
+  <!-- ═══ JSON-LD Article Schema ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "G Architects Design Journal",
+    "description": "Insights, ideas, and stories from G Architects — Hyderabad's premier architecture and interior design studio.",
+    "url": "https://garchitects.com/articles.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "G Architects",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/COMPANY%20LOGO.png"
+      }
+    }
+  }
+  </script>
   <meta name="description" content="Insights, ideas, and stories from G Architects — Hyderabad's premier architecture and interior design studio. Explore our Design Journal.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/fonts/fonts.css">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <style>
     :root {
@@ -187,7 +204,7 @@
       // Load marked.js
       await new Promise(res => {
         const s = document.createElement('script');
-        s.src = 'https://cdn.jsdelivr.net/npm/marked@9/marked.min.js';
+        s.src = '/js/vendor/marked.min.js';
         s.onload = res; document.head.appendChild(s);
       });
 
