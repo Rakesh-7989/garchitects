@@ -143,24 +143,19 @@ window.addEventListener('load', () => { setTimeout(() => { document.getElementBy
       const phoneOk = /^\d{10}$/.test(phone);
       if (!phoneOk) { setError('fg-phone'); } else { setValid('fg-phone'); }
 
-      /* ── validate email: must have @ and end with .com ── */
-      const email = document.getElementById('inp-email').value.trim();
-      const emailOk = /^[^\s@]+@[^\s@]+\.com$/i.test(email);
-      if (!emailOk) { setError('fg-email'); } else { setValid('fg-email'); }
-
       /* ── if all pass, show success ── */
-      const allOk = name.length >= 2 && phoneOk && emailOk;
+      const allOk = name.length >= 2 && phoneOk;
       if (allOk) {
         const service = document.getElementById('inp-service').value.trim();
         const loc = document.getElementById('inp-location').value.trim();
         const details = document.getElementById('inp-details').value.trim();
 
-        let message = `Hello G Architects!\n\nI would like to make an enquiry.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}`;
+        let message = `Hello G Architects!\n\nI would like to make an enquiry.\n\n*Name:* ${name}\n*Phone:* ${phone}`;
         if (service) message += `\n*Project Type:* ${service}`;
         if (loc) message += `\n*Location:* ${loc}`;
         if (details) message += `\n*Details:* ${details}`;
 
-        const waUrl = `https://wa.me/919989991429?text=${encodeURIComponent(message)}`;
+        const waUrl = `https://wa.me/916374048059?text=${encodeURIComponent(message)}`;
         window.open(waUrl, '_blank');
 
         const btn = e.target.querySelector('.btn-submit');
@@ -169,7 +164,7 @@ window.addEventListener('load', () => { setTimeout(() => { document.getElementBy
         setTimeout(() => {
           btn.textContent = 'Send Enquiry →';
           btn.style.background = '';
-          ['fg-name', 'fg-phone', 'fg-email'].forEach(clearState);
+          ['fg-name', 'fg-phone'].forEach(clearState);
           e.target.reset();
         }, 3000);
       }
@@ -196,20 +191,6 @@ window.addEventListener('load', () => { setTimeout(() => { document.getElementBy
         });
       }
 
-      /* ── live validation on email ── */
-      const emailInp = document.getElementById('inp-email');
-      if (emailInp) {
-        emailInp.addEventListener('blur', function () {
-          const val = this.value.trim();
-          if (!val) return;
-          const fg = document.getElementById('fg-email');
-          if (/^[^\s@]+@[^\s@]+\.com$/i.test(val)) {
-            fg.classList.remove('has-error'); fg.classList.add('is-valid');
-          } else {
-            fg.classList.remove('is-valid'); fg.classList.add('has-error');
-          }
-        });
-      }
     });
     setTimeout(() => { document.querySelectorAll('.hero-content .reveal, .hero-content .reveal-left, .hero-content .reveal-right').forEach(el => el.classList.add('visible')); }, 1900);
 

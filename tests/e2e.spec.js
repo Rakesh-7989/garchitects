@@ -63,7 +63,7 @@ test.describe('Content Tests', () => {
     await page.goto(BASE_URL + '/');
     await expect(page.locator('footer')).toBeVisible();
     await expect(page.locator('footer')).toContainText('+91 63740 48059');
-    await expect(page.locator('footer')).toContainText('garchitects99@gmail.com');
+    await expect(page.locator('footer')).toContainText('Plot no. 84');
   });
 
   test('CMS blog section loads content', async ({ page }) => {
@@ -124,7 +124,6 @@ test.describe('Contact Form Tests', () => {
     await page.goto(BASE_URL + '/');
     await page.fill('#inp-name', '');
     await page.fill('#inp-phone', '9876543210');
-    await page.fill('#inp-email', 'test@example.com');
     await page.click('.btn-submit');
     await expect(page.locator('#fg-name')).toHaveClass(/has-error/);
   });
@@ -133,29 +132,17 @@ test.describe('Contact Form Tests', () => {
     await page.goto(BASE_URL + '/');
     await page.fill('#inp-name', 'Test User');
     await page.fill('#inp-phone', '123');
-    await page.fill('#inp-email', 'test@example.com');
     await page.click('.btn-submit');
     await expect(page.locator('#fg-phone')).toHaveClass(/has-error/);
-  });
-
-  test('Form validation: invalid email shows error', async ({ page }) => {
-    await page.goto(BASE_URL + '/');
-    await page.fill('#inp-name', 'Test User');
-    await page.fill('#inp-phone', '9876543210');
-    await page.fill('#inp-email', 'invalid-email');
-    await page.click('.btn-submit');
-    await expect(page.locator('#fg-email')).toHaveClass(/has-error/);
   });
 
   test('Form validation: valid data passes', async ({ page }) => {
     await page.goto(BASE_URL + '/');
     await page.fill('#inp-name', 'Test User');
     await page.fill('#inp-phone', '9876543210');
-    await page.fill('#inp-email', 'test@example.com');
     await page.click('.btn-submit');
     await expect(page.locator('#fg-name')).toHaveClass(/is-valid/);
     await expect(page.locator('#fg-phone')).toHaveClass(/is-valid/);
-    await expect(page.locator('#fg-email')).toHaveClass(/is-valid/);
   });
 
   test('Phone input only accepts digits', async ({ page }) => {
