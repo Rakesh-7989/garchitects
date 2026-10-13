@@ -22,6 +22,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://identity.netlify.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap"
     rel="stylesheet">
@@ -2677,7 +2681,7 @@
   <div class="loader" id="loader">
     <div class="loader-inner">
       <div class="loader-logo">
-        <img src="https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/COMPANY LOGO.png">
+        <img src="https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/COMPANY LOGO.png" alt="G Architects Logo">
         <div class="loader-logo-text">
           <span class="loader-logo-name"><span class="white-letter">G</span> Architects</span>
           <span class="loader-logo-sub">Architecture &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; Interior</span>
@@ -2720,13 +2724,13 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-close" id="mobileClose">✕</div>
-    <a href="#home" onclick="closeMobile()">Home</a>
-    <a href="#about" onclick="closeMobile()">About</a>
-    <a href="#services" onclick="closeMobile()">Services</a>
-    <a href="#projects" onclick="closeMobile()">Projects</a>
-    <a href="#process" onclick="closeMobile()">Process</a>
-    <a href="#blog" onclick="closeMobile()">Journal</a>
-    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <a href="#home" class="mobile-nav-link">Home</a>
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#services" class="mobile-nav-link">Services</a>
+    <a href="#projects" class="mobile-nav-link">Projects</a>
+    <a href="#process" class="mobile-nav-link">Process</a>
+    <a href="#blog" class="mobile-nav-link">Journal</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
   </div>
 
   <!-- HERO -->
@@ -2795,7 +2799,7 @@
     <div class="section-inner">
       <div class="about-grid">
         <div class="about-visual reveal-left">
-          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80" alt="G Architects Studio"
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80" alt="G Architects Studio" loading="lazy"
             class="about-real-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="about-image-mock" style="display:none;"><svg viewBox="0 0 300 400" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -3135,7 +3139,6 @@
 
       </div>
     </div>
-    </div>
   </section>
 
   <!-- PROJECTS -->
@@ -3213,8 +3216,8 @@
             like theirs.</p>
         </div>
         <div class="testi-scroll-btns">
-          <button id="testi-prev" aria-label="Previous" onclick="scrollTesti(-1)">←</button>
-          <button id="testi-next" aria-label="Next" onclick="scrollTesti(1)">→</button>
+          <button id="testi-prev" aria-label="Previous">←</button>
+          <button id="testi-next" aria-label="Next">→</button>
         </div>
       </div>
     </div>
@@ -3242,8 +3245,8 @@
         <div style="display:flex;align-items:center;gap:1.5rem;">
           <a href="/articles.html" class="btn-ghost">All Articles →</a>
           <div class="blog-scroll-btns">
-            <button id="blog-prev" aria-label="Previous" onclick="scrollBlog(-1)">←</button>
-            <button id="blog-next" aria-label="Next" onclick="scrollBlog(1)">→</button>
+            <button id="blog-prev" aria-label="Previous">←</button>
+            <button id="blog-next" aria-label="Next">→</button>
           </div>
         </div>
       </div>
@@ -3342,7 +3345,8 @@
             </svg>Chat on WhatsApp</a>
         </div>
         <div class="reveal-right">
-          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)" novalidate netlify>
+            <input type="hidden" name="form-name" value="contact">
             <div class="form-row">
               <div class="form-group" id="fg-name">
                 <label>Full Name</label>
@@ -3653,7 +3657,7 @@
   </style>
 
   <div id="projectModal">
-    <button class="pm-close" onclick="closeGallery()" aria-label="Close">✕</button>
+    <button class="pm-close" aria-label="Close">✕</button>
     <div class="pm-wrap">
       <div class="pm-left" id="modalMainMedia">
         <!-- Media items injected here -->
@@ -3952,16 +3956,28 @@
     })();
   </script>
 
+  <!-- ═══ EVENT LISTENER WIRING (replaces inline onclick) ═══ -->
   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
+    // Mobile menu links — close menu on click
+    document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+      link.addEventListener('click', closeMobile);
+    });
+
+    // Testimonial scroll buttons
+    var testiPrev = document.getElementById('testi-prev');
+    var testiNext = document.getElementById('testi-next');
+    if (testiPrev) testiPrev.addEventListener('click', function() { scrollTesti(-1); });
+    if (testiNext) testiNext.addEventListener('click', function() { scrollTesti(1); });
+
+    // Blog scroll buttons
+    var blogPrev = document.getElementById('blog-prev');
+    var blogNext = document.getElementById('blog-next');
+    if (blogPrev) blogPrev.addEventListener('click', function() { scrollBlog(-1); });
+    if (blogNext) blogNext.addEventListener('click', function() { scrollBlog(1); });
+
+    // Gallery modal close button
+    var pmClose = document.querySelector('.pm-close');
+    if (pmClose) pmClose.addEventListener('click', closeGallery);
   </script>
 </body>
 
