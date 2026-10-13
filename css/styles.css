@@ -355,7 +355,7 @@
       position: fixed;
       inset: 0;
       background: var(--black);
-      z-index: 999;
+      z-index: 1001;
       flex-direction: column;
       align-items: center;
       justify-content: center;
