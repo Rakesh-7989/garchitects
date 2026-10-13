@@ -27,7 +27,7 @@
     _markedCallbacks.push(cb);
     if (_markedCallbacks.length > 1) return;
     const s = document.createElement('script');
-    s.src = 'https://cdn.jsdelivr.net/npm/marked@9/marked.min.js';
+    s.src = '/js/vendor/marked.min.js';
     s.onload = function () {
       _markedReady = true;
       _markedCallbacks.forEach(fn => fn());
