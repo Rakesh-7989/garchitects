@@ -123,25 +123,35 @@ window.addEventListener('load', () => { setTimeout(() => { document.getElementBy
         const fg = document.getElementById(fgId);
         fg.classList.remove('has-error');
         fg.classList.add('is-valid');
+        const input = fg.querySelector('input, select, textarea');
+        if (input) input.setAttribute('aria-invalid', 'false');
       }
-      function setError(fgId) {
+      function setError(fgId, message) {
         const fg = document.getElementById(fgId);
         fg.classList.remove('is-valid');
         fg.classList.add('has-error');
+        const input = fg.querySelector('input, select, textarea');
+        if (input) input.setAttribute('aria-invalid', 'true');
+        if (message) {
+          const errEl = fg.querySelector('.field-error');
+          if (errEl && message) errEl.textContent = message;
+        }
       }
       function clearState(fgId) {
         const fg = document.getElementById(fgId);
         fg.classList.remove('has-error', 'is-valid');
+        const input = fg.querySelector('input, select, textarea');
+        if (input) input.removeAttribute('aria-invalid');
       }
 
       /* ── validate name ── */
       const name = document.getElementById('inp-name').value.trim();
-      if (name.length < 2) { setError('fg-name'); } else { setValid('fg-name'); }
+      if (name.length < 2) { setError('fg-name', 'Please enter your full name (min 2 characters).'); } else { setValid('fg-name'); }
 
       /* ── validate phone: exactly 10 digits ── */
       const phone = document.getElementById('inp-phone').value.trim();
       const phoneOk = /^\d{10}$/.test(phone);
-      if (!phoneOk) { setError('fg-phone'); } else { setValid('fg-phone'); }
+      if (!phoneOk) { setError('fg-phone', phone.length === 0 ? 'Enter a valid 10-digit phone number.' : phone.length + '/10 digits entered.'); } else { setValid('fg-phone'); }
 
       /* ── if all pass, show success ── */
       const allOk = name.length >= 2 && phoneOk;
@@ -161,9 +171,11 @@ window.addEventListener('load', () => { setTimeout(() => { document.getElementBy
         const btn = e.target.querySelector('.btn-submit');
         btn.textContent = 'Redirecting to WhatsApp...';
         btn.style.background = '#2a9d8f';
+        btn.disabled = true;
         setTimeout(() => {
           btn.textContent = 'Send Enquiry →';
           btn.style.background = '';
+          btn.disabled = false;
           ['fg-name', 'fg-phone'].forEach(clearState);
           e.target.reset();
         }, 3000);
@@ -179,11 +191,14 @@ window.addEventListener('load', () => { setTimeout(() => { document.getElementBy
           const fg = document.getElementById('fg-phone');
           if (this.value.length === 0) {
             fg.classList.remove('has-error', 'is-valid');
+            fg.querySelector('.field-error').textContent = 'Enter a valid 10-digit phone number.';
           } else if (this.value.length === 10) {
             fg.classList.remove('has-error'); fg.classList.add('is-valid');
+            this.setAttribute('aria-invalid', 'false');
           } else {
             fg.classList.remove('is-valid'); fg.classList.add('has-error');
             document.getElementById('err-phone').textContent = this.value.length + '/10 digits entered.';
+            this.setAttribute('aria-invalid', 'true');
           }
         });
         phoneInp.addEventListener('keypress', function (e) {
@@ -191,6 +206,24 @@ window.addEventListener('load', () => { setTimeout(() => { document.getElementBy
         });
       }
 
+      /* ── live validation on name ── */
+      const nameInp = document.getElementById('inp-name');
+      if (nameInp) {
+        nameInp.addEventListener('blur', function () {
+          const val = this.value.trim();
+          const fg = document.getElementById('fg-name');
+          if (val.length === 0) {
+            fg.classList.remove('has-error', 'is-valid');
+          } else if (val.length >= 2) {
+            fg.classList.remove('has-error'); fg.classList.add('is-valid');
+            this.setAttribute('aria-invalid', 'false');
+          } else {
+            fg.classList.remove('is-valid'); fg.classList.add('has-error');
+            fg.querySelector('.field-error').textContent = 'Name must be at least 2 characters.';
+            this.setAttribute('aria-invalid', 'true');
+          }
+        });
+      }
     });
     setTimeout(() => { document.querySelectorAll('.hero-content .reveal, .hero-content .reveal-left, .hero-content .reveal-right').forEach(el => el.classList.add('visible')); }, 1900);
 
