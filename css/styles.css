@@ -400,6 +400,10 @@
       color: var(--text-muted);
       transition: color 0.3s;
       position: relative;
+      min-height: var(--touch-target);
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-sm) var(--space-xs);
     }
 
     .nav-links a::after {
@@ -492,6 +496,18 @@
       color: var(--text-muted);
       z-index: 1000;
       padding: 10px;
+      min-height: var(--touch-target);
+      min-width: var(--touch-target);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .mobile-close:hover {
+      color: var(--gold);
+      background: rgba(201, 169, 110, 0.1);
     }
 
     #home {
@@ -1012,7 +1028,7 @@
     }
 
     .filter-btn {
-      padding: 0.5rem 1.4rem;
+      padding: 0.75rem 1.4rem;
       border: 1px solid var(--border);
       background: transparent;
       color: var(--text-muted);
@@ -1022,6 +1038,11 @@
       text-transform: uppercase;
       cursor: pointer;
       transition: all 0.3s;
+      min-height: var(--touch-target);
+      min-width: var(--touch-target);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .filter-btn.active,
@@ -1966,6 +1987,9 @@
       justify-content: center;
       box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
       transition: transform 0.3s, box-shadow 0.3s;
+      /* Safe area for notched devices */
+      bottom: max(2rem, env(safe-area-inset-bottom));
+      right: max(2rem, env(safe-area-inset-right));
     }
 
     .wa-float:hover {
