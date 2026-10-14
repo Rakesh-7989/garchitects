@@ -316,3 +316,37 @@ if (window.netlifyIdentity) {
     var pmClose = document.querySelector('.pm-close');
     if (pmClose) pmClose.addEventListener('click', closeGallery);
 
+    // ═══ SERVICE WORKER REGISTRATION ═══
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function (registration) {
+            console.log('[SW] Registered:', registration.scope);
+
+            // Check for updates
+            registration.addEventListener('updatefound', function () {
+              var newWorker = registration.installing;
+              newWorker.addEventListener('statechange', function () {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // New version available
+                  if (confirm('A new version of G Architects is available. Reload to update?')) {
+                    window.location.reload();
+                  }
+                }
+              });
+            });
+          })
+          .catch(function (error) {
+            console.log('[SW] Registration failed:', error);
+          });
+
+        // Listen for controller change (new SW activated)
+        var refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', function () {
+          if (refreshing) return;
+          refreshing = true;
+          window.location.reload();
+        });
+      });
+    }
+

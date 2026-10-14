@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline — G Architects</title>
+  <meta name="robots" content="noindex">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#C9A96E">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: #080808;
+      color: #F5F0E8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    .offline-container { max-width: 400px; }
+    .logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 2rem;
+      filter: brightness(0) invert(1);
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 300;
+      margin-bottom: 1rem;
+      color: #C9A96E;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #888880;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #C9A96E;
+      color: #080808;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s, transform 0.2s;
+      text-decoration: none;
+    }
+    .btn:hover { background: #E2C998; transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+    .icon { width: 20px; height: 20px; }
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: rgba(201, 169, 110, 0.3);
+      margin: 2rem auto;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: #888880;
+      font-size: 0.85rem;
+    }
+    .feature svg { width: 32px; height: 32px; stroke: #C9A96E; }
+  </style>
+</head>
+<body>
+  <div class="offline-container">
+    <img src="https://res.cloudinary.com/dh4efeksi/image/upload/f_webp,g_auto,w_192/garchitects/COMPANY%20LOGO.png" alt="G Architects Logo" class="logo">
+    <h1>You're Offline</h1>
+    <p>It looks like you've lost your internet connection. Some features may not be available right now.</p>
+    <a href="/" class="btn" onclick="window.location.reload()">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+      </svg>
+      Try Again
+    </a>
+    <div class="divider"></div>
+    <div class="features">
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Cached pages still work</span>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span>Images cached locally</span>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <span>Auto-reconnects</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Auto-retry when online
+    window.addEventListener('online', () => window.location.reload());
+    // Prevent zoom on double-tap
+    document.addEventListener('dblclick', e => e.preventDefault(), { passive: false });
+  </script>
+</body>
+</html>
