@@ -158,7 +158,7 @@ Just before `</body>` in index.html (after all other scripts):
 ## ✅ Step 7 — Connect your custom .com domain
 
 1. Netlify dashboard → **Domain management → Add custom domain**
-2. Enter your domain (e.g. `garchitects.com`)
+2. Enter your domain (e.g. `garchitects.in`)
 3. Update your domain registrar DNS:
    - Add a **CNAME** record: `www` → `your-netlify-subdomain.netlify.app`
    - Or use Netlify DNS for automatic HTTPS (recommended)

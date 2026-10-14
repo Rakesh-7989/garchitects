@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://garchitects.com/sitemap.xml
+Sitemap: https://garchitects.in/sitemap.xml
