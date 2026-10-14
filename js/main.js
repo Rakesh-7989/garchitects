@@ -96,9 +96,21 @@ window.addEventListener('load', () => { setTimeout(() => { document.getElementBy
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
     window.addEventListener('scroll', () => { let current = ''; sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; }); navLinks.forEach(a => { a.classList.remove('active'); if (a.getAttribute('href') === '#' + current) a.classList.add('active'); }); });
-    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
-    document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
-    function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+    document.getElementById('hamburger').addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.add('open');
+      document.body.classList.add('body-lock');
+    });
+    document.getElementById('mobileClose').addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.remove('open');
+      document.body.classList.remove('body-lock');
+    });
+    function closeMobile() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.remove('open');
+      document.body.classList.remove('body-lock');
+    }
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
