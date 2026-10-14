@@ -1795,6 +1795,25 @@
       letter-spacing: 0.05em;
     }
 
+    .dev-credit {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+
+    .dev-credit a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, color 0.3s;
+    }
+
+    .dev-credit a:hover {
+      color: var(--gold-light);
+      border-bottom-color: var(--gold);
+    }
+
     .social-links {
       display: flex;
       gap: 1.2rem;
