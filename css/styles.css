@@ -1,5 +1,6 @@
 /* ═══ Style Block 1 ═══ */
 :root {
+      /* ── Core Colors ── */
       --black: #080808;
       --charcoal: #111111;
       --dark: #1A1A1A;
@@ -11,6 +12,54 @@
       --text-muted: #888880;
       --border: rgba(201, 169, 110, 0.2);
       --nav-h: 80px;
+
+      /* ── Touch & Interaction System ── */
+      --touch-target: 44px;
+      --touch-target-sm: 40px;
+      --focus-ring: 2px solid var(--gold);
+      --focus-offset: 2px;
+      --focus-ring-inset: 0 0 0 2px var(--black), 0 0 0 4px var(--gold);
+
+      /* ── Breakpoints (mobile-first) ── */
+      --bp-mobile: 480px;
+      --bp-mobile-lg: 576px;
+      --bp-tablet: 768px;
+      --bp-tablet-lg: 992px;
+      --bp-desktop: 1200px;
+      --bp-wide: 1440px;
+
+      /* ── Spacing Scale ── */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+
+      /* ── Typography Scale ── */
+      --fs-base: 1rem;        /* 16px */
+      --fs-sm: 0.875rem;      /* 14px */
+      --fs-lg: 1.125rem;      /* 18px */
+      --fs-xl: 1.25rem;       /* 20px */
+      --fs-2xl: 1.5rem;       /* 24px */
+      --fs-3xl: 2rem;         /* 32px */
+      --fs-4xl: 2.5rem;       /* 40px */
+
+      /* ── Transitions ── */
+      --transition-fast: 150ms ease;
+      --transition-base: 250ms ease;
+      --transition-slow: 350ms ease;
+
+      /* ── Z-Index Scale ── */
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-fixed: 300;
+      --z-modal-backdrop: 400;
+      --z-modal: 500;
+      --z-popover: 600;
+      --z-tooltip: 700;
+      --z-toast: 800;
     }
 
     *,
@@ -25,6 +74,63 @@
       scroll-behavior: smooth;
       font-size: 16px;
       overflow-x: hidden;
+      -webkit-tap-highlight-color: var(--gold);
+      -webkit-tap-highlight-color: transparent; /* fallback, overridden by custom */
+    }
+
+    /* ═══ Focus Visible System ═══ */
+    :focus {
+      outline: none;
+    }
+
+    :focus-visible {
+      outline: none;
+      box-shadow: var(--focus-ring-inset);
+      border-radius: 2px;
+    }
+
+    /* Fallback for browsers without :focus-visible support */
+    .js-focus-visible :focus:not(.focus-visible) {
+      outline: none;
+      box-shadow: none;
+    }
+
+    .js-focus-visible :focus:not(.focus-visible):focus-visible {
+      box-shadow: var(--focus-ring-inset);
+    }
+
+    /* ═══ Touch Target Base ═══ */
+    button,
+    a[role="button"],
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    select,
+    textarea,
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="search"],
+    input[type="url"] {
+      min-height: var(--touch-target);
+      min-width: var(--touch-target);
+      touch-action: manipulation;
+    }
+
+    /* Ensure links that act as buttons have proper touch targets */
+    .btn-primary,
+    .btn-ghost,
+    .filter-btn,
+    .nav-links a,
+    .wa-float,
+    .mobile-close,
+    .dev-credit a {
+      min-height: var(--touch-target);
+      min-width: var(--touch-target);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     body {
@@ -2904,3 +3010,315 @@
       }
     }
 
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     MOBILE-FIRST RESPONSIVE SYSTEM
+     Progressive enhancement from mobile up using min-width queries
+     ═══════════════════════════════════════════════════════════════════════ */
+
+  /* Base styles (mobile < 480px) are already the default */
+  /* The following min-width queries progressively enhance */
+
+  /* ── Mobile Landscape / Small Tablet (480px+) ── */
+  @media (min-width: 480px) {
+    .hero-title {
+      font-size: clamp(2.8rem, 6vw, 6.5rem);
+    }
+    .hero-stats {
+      display: flex;
+    }
+    .hero-content {
+      padding-top: calc(var(--nav-h) + 2rem);
+    }
+    .nav-logo-name {
+      font-size: 1.3rem;
+    }
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .testi-card {
+      min-width: min(280px, 80vw);
+      padding: 1.8rem;
+    }
+    .blog-card {
+      min-width: min(280px, 80vw);
+    }
+    .service-card {
+      min-height: 280px;
+    }
+    section {
+      padding: 5rem 5vw;
+    }
+    .wa-float {
+      bottom: 2rem;
+      right: 2rem;
+      width: 56px;
+      height: 56px;
+    }
+    .wa-float svg {
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  /* ── Tablet Portrait (576px+) ── */
+  @media (min-width: 576px) {
+    .projects-filter {
+      gap: 0.6rem;
+    }
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.65rem;
+    }
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+    .contact-grid {
+      gap: 3rem;
+    }
+    .cta-banner {
+      padding: 6rem 5vw;
+    }
+    .testimonials-header {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+
+  /* ── Tablet Landscape (768px+) ── */
+  @media (min-width: 768px) {
+    .hero-stats {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .stat {
+      padding: 0.8rem 1.5rem;
+    }
+    .stat-num {
+      font-size: 1.6rem;
+    }
+    .stat-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+    }
+    .nav-links {
+      display: flex;
+    }
+    .hamburger {
+      display: none;
+    }
+    .nav-logo-tagline {
+      display: flex;
+    }
+    .about-grid,
+    .contact-grid,
+    .services-intro,
+    .testimonials-layout {
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+    .testi-card {
+      min-width: min(360px, 70vw);
+    }
+    .blog-card {
+      min-width: min(340px, 70vw);
+    }
+    .projects-grid {
+      grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
+    }
+    .process-steps {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 4rem;
+    }
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .service-card {
+      height: 320px;
+      min-height: 320px;
+    }
+    .service-card-inner {
+      transform-style: preserve-3d;
+    }
+    .service-card .service-card-inner {
+      transform: none;
+    }
+    .service-card-back {
+      display: flex;
+    }
+    .service-card:nth-child(odd) {
+      border-right: 1px solid var(--border);
+    }
+    .about-visual {
+      aspect-ratio: 3/4;
+    }
+    .about-values {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .hero-visual {
+      width: 55%;
+      opacity: 0.5;
+    }
+    .hero-building {
+      opacity: 0.04;
+    }
+    section {
+      padding: 8rem 5vw;
+    }
+    .section-header {
+      margin-bottom: 4rem;
+    }
+    .cta-actions {
+      flex-direction: row;
+      justify-content: center;
+    }
+    .hero-actions {
+      flex-direction: row;
+      align-items: center;
+    }
+    .hero-subtitle {
+      font-size: 0.82rem;
+      max-width: 460px;
+    }
+    .hero-scroll {
+      display: flex;
+    }
+    .projects-filter {
+      gap: 0.8rem;
+    }
+    .filter-btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.68rem;
+    }
+    .cta-banner {
+      padding: 8rem 5vw;
+    }
+    .testimonials-header {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+
+  /* ── Desktop (992px+) ── */
+  @media (min-width: 992px) {
+    .gallery-modal {
+      grid-template-columns: 1fr 350px;
+    }
+    .gallery-sidebar {
+      border-left: 1px solid var(--border);
+      border-top: none;
+      padding: 4rem 2.5rem;
+      height: 100vh;
+    }
+    .pm-wrap {
+      flex-direction: row;
+    }
+    .pm-left {
+      padding: 60px 40px;
+      order: 1;
+    }
+    .pm-right {
+      width: 380px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      border-left: 1px solid rgba(255, 255, 255, 0.03);
+      border-bottom: none;
+      padding: 60px 40px;
+      order: 2;
+    }
+    .pm-close {
+      top: 20px;
+      left: 20px;
+      right: auto;
+    }
+  }
+
+  /* ── Large Desktop (1200px+) ── */
+  @media (min-width: 1200px) {
+    .projects-grid {
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+    .proj-card:nth-child(n) {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 5rem;
+    }
+    .process-steps {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4rem;
+    }
+    .process-line {
+      display: block;
+    }
+    .services-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .about-grid {
+      gap: 8rem;
+    }
+    .contact-grid {
+      gap: 6rem;
+    }
+    .services-intro {
+      gap: 6rem;
+    }
+    .team-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  /* ── Wide Desktop (1440px+) ── */
+  @media (min-width: 1440px) {
+    .hero-title {
+      font-size: clamp(3.5rem, 7vw, 8rem);
+    }
+    .hero-subtitle {
+      max-width: 520px;
+    }
+    .stat-num {
+      font-size: 2.2rem;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     UTILITY CLASSES FOR MOBILE-FIRST
+     ═══════════════════════════════════════════════════════════════════════ */
+
+  /* Hide on mobile, show on tablet+ */
+  .hide-mobile { display: none; }
+  @media (min-width: 768px) { .hide-mobile { display: inherit; } }
+
+  /* Hide on tablet+, show on mobile */
+  .hide-desktop { display: inherit; }
+  @media (min-width: 768px) { .hide-desktop { display: none; } }
+
+  /* Text alignment responsive */
+  .text-center-mobile { text-align: center; }
+  @media (min-width: 768px) { .text-center-mobile { text-align: left; } }
+
+  /* Stack on mobile, inline on desktop */
+  .stack-mobile { flex-direction: column; }
+  @media (min-width: 768px) { .stack-mobile { flex-direction: row; } }
+
+  /* Gap responsive */
+  .gap-mobile-sm { gap: var(--space-sm); }
+  @media (min-width: 768px) { .gap-mobile-sm { gap: var(--space-md); } }
+
+  .gap-mobile-md { gap: var(--space-md); }
+  @media (min-width: 768px) { .gap-mobile-md { gap: var(--space-lg); } }
+
+  /* Touch target utilities */
+  .touch-target { min-height: var(--touch-target); min-width: var(--touch-target); }
+  .touch-target-sm { min-height: var(--touch-target-sm); min-width: var(--touch-target-sm); }
