@@ -49,9 +49,9 @@ test.describe('Content Tests', () => {
     await expect(page.locator('.nav-links a')).toHaveCount(7);
   });
 
-  test('Services section has 6 cards', async ({ page }) => {
+  test('Services section has 8 cards', async ({ page }) => {
     await page.goto(BASE_URL + '/');
-    await expect(page.locator('.service-card')).toHaveCount(6);
+    await expect(page.locator('.service-card')).toHaveCount(8);
   });
 
   test('Process section has 5 steps', async ({ page }) => {

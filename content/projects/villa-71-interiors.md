@@ -14,11 +14,9 @@ gallery:
   - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/kitchen.webp
     caption: Kitchen – Full View with Finishes
   - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/k1.webp
-    caption: "Kitchen – Design View "
-  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/k2.webp
-    caption: "Kitchen – Design View "
+    caption: "Kitchen – Dinning View "
   - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/k3.webp
-    caption: "Kitchen – Design View "
+    caption: "Kitchen View "
   - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/Picture1.png
     caption: GROUND FLOOR GUEST BEDROOM
   - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/Picture2.png
@@ -55,8 +53,6 @@ gallery:
     caption: Second Floor – Master Bedroom Alternate View
   - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/home theater.webp
     caption: Home Theatre – Immersive Entertainment Room
-  - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/home & bar 1.webp
-    caption: Home Bar – Stylish Bar Design View 1
   - image: /images1/uploads/WEBSITE/INTERIORS/Villa-71/home & bar.webp
     caption: Home Bar – Premium Bar Counter Design
 description: Luxury villa interior design with premium finishes across all floors
