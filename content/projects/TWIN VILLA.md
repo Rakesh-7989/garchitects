@@ -9,10 +9,10 @@ site_area: 360 sq.yds.
 units: "2"
 unit_type: Villa
 budget: 3 CR
-cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/TWIN
+cover_image: /images1/uploads/WEBSITE/Independent/TWIN
   VILLA/Compressed/elevation-1.webp
 gallery:
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/TWIN
+  - image: /images1/uploads/WEBSITE/Independent/TWIN
       VILLA/Compressed/elevation-1.webp
     caption: Front Elevation – Modern Twin Villa Design
 description: Modern Villa · 6000 sq ft

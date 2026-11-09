@@ -3,7 +3,7 @@ title: "The Art of Designing a Modern Villa in Hyderabad"
 date: 2025-01-15T09:00:00+05:30
 author: "G Architects Team"
 category: "architecture"
-featured_image: "https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/sample-villa-article.jpg"
+featured_image: "/images1/uploads/sample-villa-article.jpg"
 image_alt: "Modern villa exterior with clean lines and landscaping"
 excerpt: "Designing a modern villa requires balancing aesthetics, functionality, and climate responsiveness. Here's how we approach every project."
 seo_title: "How to Design a Modern Villa in Hyderabad | G Architects"

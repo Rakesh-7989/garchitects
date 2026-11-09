@@ -2,7 +2,7 @@
 client_name: "Rajesh & Priya Mehta"
 project_type: "4BHK Villa, Banjara Hills"
 rating: 5
-photo: "https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/client-mehta.jpg"
+photo: "/images1/uploads/client-mehta.jpg"
 published: true
 order: 1
 ---

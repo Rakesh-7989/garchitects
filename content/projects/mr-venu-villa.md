@@ -8,19 +8,19 @@ built_up_area: 3,600 sq.ft.
 site_area: 220 sq.yds
 total_sqft: 3,600 sq.ft.
 budget: 1.5 CR
-cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/MR.
+cover_image: /images1/uploads/WEBSITE/Independent/MR.
   Venu Villa/Compressed/view 1.webp
 gallery:
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/MR.
+  - image: /images1/uploads/WEBSITE/Independent/MR.
       Venu Villa/Compressed/Enscape_2024-11-21-16-27-41.webp
     caption: Elevation 3D Render
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/MR.
+  - image: /images1/uploads/WEBSITE/Independent/MR.
       Venu Villa/Compressed/Enscape_2024-11-21-16-30-57.webp
     caption: Contemporary 3D Visualization
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/MR.
+  - image: /images1/uploads/WEBSITE/Independent/MR.
       Venu Villa/Compressed/view 1.webp
     caption: Villa Front Elevation – Street View Perspective
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/MR.
+  - image: /images1/uploads/WEBSITE/Independent/MR.
       Venu Villa/Compressed/view 2.webp
     caption: Villa Front Elevation – Architectural Detail
 description: Independent Villa.

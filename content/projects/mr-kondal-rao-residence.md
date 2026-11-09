@@ -4,10 +4,10 @@ category: residential
 location: Home Town
 year: 2023
 status: completed
-cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/Mr.
+cover_image: /images1/uploads/WEBSITE/Independent/Mr.
   Kondal Rao Residence/Compressed/kondal rao elevation 5-3.webp
 gallery:
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/Mr.
+  - image: /images1/uploads/WEBSITE/Independent/Mr.
       Kondal Rao Residence/Compressed/kondal rao elevation 5-3.webp
     caption: Front Elevation – Contemporary Independent House
 description: Independent House.

@@ -13,31 +13,31 @@ budget: 40 CR
 special_features: 7 feet Hight Door, 100% Vastu, Numatic System, 100% Power
   Back-Up, Air Filling Station, Gate Automation, Car Charging Ponit, 3-Phase
   Curcuit, Car Wash Bay.
-cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/DAYARA
+cover_image: /images1/uploads/WEBSITE/Layouts/DAYARA
   APARTMENTS/Compressed/4 night view-1.webp
 gallery:
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/DAYARA
+  - image: /images1/uploads/WEBSITE/Layouts/DAYARA
       APARTMENTS/Compressed/4 night view-1.webp
     caption: Building Elevation
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/DAYARA
+  - image: /images1/uploads/WEBSITE/Layouts/DAYARA
       APARTMENTS/Compressed/evening view-1.webp
     caption: Evening Elevation – Warm Ambient Glow
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/DAYARA
+  - image: /images1/uploads/WEBSITE/Layouts/DAYARA
       APARTMENTS/Compressed/JOGGING TRACK-2.webp
     caption: Jogging Track – Landscaped Pathway View
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/DAYARA
+  - image: /images1/uploads/WEBSITE/Layouts/DAYARA
       APARTMENTS/Compressed/JOGGING TRACK.webp
     caption: Jogging Track with Green Surroundings
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/DAYARA
+  - image: /images1/uploads/WEBSITE/Layouts/DAYARA
       APARTMENTS/Compressed/gathering.webp
     caption: Community Gathering & Event Space
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/DAYARA
+  - image: /images1/uploads/WEBSITE/Layouts/DAYARA
       APARTMENTS/Compressed/kids play area.webp
     caption: Kids Play Area – Safe & Fun Outdoor Zone
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/DAYARA
+  - image: /images1/uploads/WEBSITE/Layouts/DAYARA
       APARTMENTS/Compressed/linear park.webp
     caption: Linear Park – Serene Walkway & Green Belt
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Layouts/DAYARA
+  - image: /images1/uploads/WEBSITE/Layouts/DAYARA
       APARTMENTS/Compressed/pool.webp
     caption: Swimming Pool – Resort-Style Amenity
 description: Seller, stait, 5 floors

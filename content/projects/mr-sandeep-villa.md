@@ -5,16 +5,16 @@ location: Nandigama, Hyderabad.
 year: 2024
 status: ongoing
 budget: 1.2 CR
-cover_image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/MR.
+cover_image: /images1/uploads/WEBSITE/Independent/MR.
   Sandeep Villa/Compressed/elevation view.4.webp
 gallery:
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/MR.
+  - image: /images1/uploads/WEBSITE/Independent/MR.
       Sandeep Villa/Compressed/Enscape_2026-03-21-20-23-51.webp
     caption: Modern Elevation 3D Render
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/MR.
+  - image: /images1/uploads/WEBSITE/Independent/MR.
       Sandeep Villa/Compressed/Enscape_2026-03-21-20-31-53.webp
     caption: Elevation Front View
-  - image: https://res.cloudinary.com/dh4efeksi/image/upload/garchitects/WEBSITE/Independent/MR.
+  - image: /images1/uploads/WEBSITE/Independent/MR.
       Sandeep Villa/Compressed/elevation view.4.webp
     caption: Villa Elevation – Architectural Design
 description: Independent Villa.
