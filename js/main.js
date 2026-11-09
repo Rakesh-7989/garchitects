@@ -88,7 +88,16 @@ window.addEventListener('load', () => { setTimeout(() => { document.getElementBy
     document.addEventListener('mouseleave', () => { cursor.classList.remove('visible'); ring.classList.remove('visible'); });
     function animateRing() { ringX += (mouseX - ringX) * 0.12; ringY += (mouseY - ringY) * 0.12; ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px'; requestAnimationFrame(animateRing); }
     animateRing();
-    document.querySelectorAll('a, button, .proj-card, .service-card').forEach(el => { el.addEventListener('mouseenter', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; ring.style.width = '60px'; ring.style.height = '60px'; }); el.addEventListener('mouseleave', () => { cursor.style.width = '8px'; cursor.style.height = '8px'; ring.style.width = '36px'; ring.style.height = '36px'; }); });
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest('a, button, .proj-card, .service-card, .cms-proj-card, .blog-card, .testi-card, .filter-btn')) {
+        cursor.style.width = '20px'; cursor.style.height = '20px'; ring.style.width = '60px'; ring.style.height = '60px';
+      }
+    });
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest('a, button, .proj-card, .service-card, .cms-proj-card, .blog-card, .testi-card, .filter-btn')) {
+        cursor.style.width = '8px'; cursor.style.height = '8px'; ring.style.width = '36px'; ring.style.height = '36px';
+      }
+    });
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); });
     const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } }); }, { threshold: 0.12 });

@@ -10,10 +10,14 @@ const path = require('path');
 
 // ── Cloudinary Config ──────────────────────────────
 cloudinary.config({
-  cloud_name: 'dh4efeksi',
-  api_key:    '176773582188537',
-  api_secret: 'ybglKbPCZQv9ccGixr7fg9E8554'
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME || 'dh4efeksi',
+  api_key:    process.env.CLOUDINARY_API_KEY || '',
+  api_secret: process.env.CLOUDINARY_API_SECRET || ''
 });
+
+if (!process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+  console.warn('⚠️ WARNING: Set CLOUDINARY_API_KEY and CLOUDINARY_API_SECRET in your environment before uploading.');
+}
 
 const UPLOADS_DIR  = './images1/uploads';
 const CLOUD_FOLDER = 'garchitects';

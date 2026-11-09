@@ -1,5 +1,11 @@
+# Environment variables & secrets
+.env
+*.env
+.env.local
+
 # Large image uploads - too big for GitHub (keep local only)
 images/uploads/
+images1/uploads/
 
 # Node modules
 node_modules/

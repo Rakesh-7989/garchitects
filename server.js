@@ -10,20 +10,11 @@ const baseDir = path.join(__dirname, 'content');
 
 function updateManifests() {
   try {
-    for (const col of collections) {
-      const dir = path.join(baseDir, col);
-      if (!fs.existsSync(dir)) continue;
-
-      const files = fs.readdirSync(dir)
-        .filter(f => f.endsWith('.md'))
-        .sort();
-
-      const manifestPath = path.join(dir, 'manifest.json');
-      fs.writeFileSync(manifestPath, JSON.stringify(files, null, 2));
-    }
-    console.log('[MANIFEST] All manifest.json files updated automatically.');
+    // Run build.js to update manifests, generate static articles and update sitemap
+    require('./build.js');
+    console.log('[BUILD] Manifests and static articles rebuilt automatically.');
   } catch (err) {
-    console.error('[MANIFEST] Error updating manifests:', err);
+    console.error('[BUILD] Error rebuilding:', err);
   }
 }
 

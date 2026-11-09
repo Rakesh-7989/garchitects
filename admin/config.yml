@@ -12,8 +12,8 @@ media_folder: "images1/uploads"
 public_folder: "/images1/uploads"
 
 # Site URL (update with your actual domain)
-site_url: https://garchitects.com
-display_url: https://garchitects.com
+site_url: https://garchitects.in
+display_url: https://garchitects.in
 
 # ──────────────────────────────────────────
 # COLLECTIONS
@@ -131,6 +131,8 @@ collections:
           - { label: "Residential", value: "residential" }
           - { label: "Commercial", value: "commercial" }
           - { label: "Interior", value: "interior" }
+          - { label: "Landscape", value: "landscape" }
+          - { label: "Site Execution", value: "execution" }
           - { label: "Gated Community/Layouts", value: "gated-community-layouts" }
 
       - label: "Location"

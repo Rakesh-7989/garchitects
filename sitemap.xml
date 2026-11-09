@@ -11,8 +11,33 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://garchitects.in/media-browser.html</loc>
+    <loc>https://garchitects.in/articles/2025-02-10-5-things-to-know-before-interior-design.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://garchitects.in/articles/2025-03-05-how-to-choose-the-right-architect-hyderabad.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://garchitects.in/articles/2025-03-28-gated-community-what-makes-great-layout.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://garchitects.in/articles/2025-04-12-complete-guide-modular-kitchen-design-india.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://garchitects.in/articles/2025-04-25-villa-elevation-design-how-exterior-defines-home.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://garchitects.in/articles/2025-05-01-bedroom-interior-design-space-that-restores.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

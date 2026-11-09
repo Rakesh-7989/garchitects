@@ -14,6 +14,7 @@ const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/articles.html',
+  '/offline.html',
   '/manifest.json',
   '/css/styles.css',
   '/js/main.js',
@@ -21,9 +22,7 @@ const STATIC_ASSETS = [
   '/js/vendor/marked.min.js',
   '/js/vendor/js-yaml.min.js',
   '/fonts/fonts.css',
-  'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap',
-  'https://garchitects.in/images1/uploads/COMPANY%20LOGO.png',
-  'https://garchitects.in/images1/uploads/COMPANY%20LOGO.png'
+  '/images1/uploads/COMPANY%20LOGO.png'
 ];
 
 // Install event — cache static assets
@@ -32,9 +31,12 @@ self.addEventListener('install', (event) => {
     caches.open(STATIC_CACHE)
       .then((cache) => {
         console.log('[SW] Caching static assets');
-        return cache.addAll(STATIC_ASSETS.map(url => new Request(url, { credentials: 'same-origin' })));
+        return cache.addAll(STATIC_ASSETS.map(url => new Request(url, { cache: 'reload' })));
       })
       .then(() => self.skipWaiting())
+      .catch((err) => {
+        console.warn('[SW] Install cache failed:', err);
+      })
   );
 });
 
@@ -74,7 +76,7 @@ self.addEventListener('fetch', (event) => {
 
   // Static assets (CSS, JS, fonts, images) — Cache-first
   if (isStaticAsset(request)) {
-    event.respondWith(cacheFirstStrategy(request, STATIC_CACHE));
+    event.respondWith(cacheFirstStrategy(request, STATIC_CACHE, event));
     return;
   }
 
@@ -89,13 +91,17 @@ self.addEventListener('fetch', (event) => {
 });
 
 // Cache-first strategy — for static assets
-async function cacheFirstStrategy(request, cacheName) {
+async function cacheFirstStrategy(request, cacheName, event) {
   const cache = await caches.open(cacheName);
   const cached = await cache.match(request);
 
   if (cached) {
-    // Return cached, update in background
-    event.waitUntil(updateCacheInBackground(request, cache));
+    // Return cached, update in background if event available
+    if (event && event.waitUntil) {
+      event.waitUntil(updateCacheInBackground(request, cache));
+    } else {
+      updateCacheInBackground(request, cache);
+    }
     return cached;
   }
 
