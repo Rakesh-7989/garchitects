@@ -22,8 +22,8 @@ const STATIC_ASSETS = [
   '/js/vendor/js-yaml.min.js',
   '/fonts/fonts.css',
   'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap',
-  'https://res.cloudinary.com/dh4efeksi/image/upload/f_webp,g_auto,w_192/garchitects/COMPANY%20LOGO.png',
-  'https://res.cloudinary.com/dh4efeksi/image/upload/f_webp,g_auto,w_512/garchitects/COMPANY%20LOGO.png'
+  'https://garchitects.in/images1/uploads/COMPANY%20LOGO.png',
+  'https://garchitects.in/images1/uploads/COMPANY%20LOGO.png'
 ];
 
 // Install event — cache static assets
@@ -189,8 +189,8 @@ self.addEventListener('push', (event) => {
     event.waitUntil(
       self.registration.showNotification(data.title, {
         body: data.body,
-        icon: 'https://res.cloudinary.com/dh4efeksi/image/upload/f_webp,g_auto,w_192/garchitects/COMPANY%20LOGO.png',
-        badge: 'https://res.cloudinary.com/dh4efeksi/image/upload/f_webp,g_auto,w_96/garchitects/COMPANY%20LOGO.png',
+        icon: 'https://garchitects.in/images1/uploads/COMPANY%20LOGO.png',
+        badge: 'https://garchitects.in/images1/uploads/COMPANY%20LOGO.png',
         vibrate: [200, 100, 200],
         data: { url: data.url || '/' }
       })

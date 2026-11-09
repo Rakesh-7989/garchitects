@@ -13,13 +13,13 @@
   "categories": ["business", "design", "architecture"],
   "icons": [
     {
-      "src": "https://res.cloudinary.com/dh4efeksi/image/upload/f_webp,g_auto,w_192/garchitects/COMPANY%20LOGO.png",
+      "src": "https://garchitects.in/images1/uploads/COMPANY%20LOGO.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://res.cloudinary.com/dh4efeksi/image/upload/f_webp,g_auto,w_512/garchitects/COMPANY%20LOGO.png",
+      "src": "https://garchitects.in/images1/uploads/COMPANY%20LOGO.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -31,14 +31,14 @@
       "short_name": "Contact",
       "description": "Get in touch with G Architects",
       "url": "/#contact",
-      "icons": [{ "src": "https://res.cloudinary.com/dh4efeksi/image/upload/f_webp,g_auto,w_96/garchitects/COMPANY%20LOGO.png", "sizes": "96x96" }]
+      "icons": [{ "src": "https://garchitects.in/images1/uploads/COMPANY%20LOGO.png", "sizes": "96x96" }]
     },
     {
       "name": "View Projects",
       "short_name": "Projects",
       "description": "Browse our portfolio",
       "url": "/#projects",
-      "icons": [{ "src": "https://res.cloudinary.com/dh4efeksi/image/upload/f_webp,g_auto,w_96/garchitects/COMPANY%20LOGO.png", "sizes": "96x96" }]
+      "icons": [{ "src": "https://garchitects.in/images1/uploads/COMPANY%20LOGO.png", "sizes": "96x96" }]
     }
   ],
   "prefer_related_applications": false,
