@@ -591,6 +591,13 @@
       opacity: 0.04;
       pointer-events: none;
     }
+    .hero-building img {
+      animation: heroLogoFloat 9s ease-in-out infinite;
+    }
+    @keyframes heroLogoFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-14px) scale(1.012); }
+    }
 
     .hero-content {
       position: relative;
@@ -615,6 +622,7 @@
     .hero-title em {
       color: var(--gold);
       font-style: italic;
+      text-shadow: 0 0 42px rgba(201, 169, 110, 0.35);
     }
 
     .hero-subtitle {
@@ -651,6 +659,7 @@
     .btn-primary:hover {
       background: var(--gold-light);
       transform: translateX(4px);
+      box-shadow: 0 0 30px rgba(201, 169, 110, 0.35);
     }
 
     .btn-ghost {
@@ -669,6 +678,7 @@
 
     .btn-ghost:hover {
       border-color: var(--gold);
+      box-shadow: 0 0 24px rgba(201, 169, 110, 0.18);
       color: var(--gold);
     }
 
